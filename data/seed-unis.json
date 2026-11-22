@@ -1,0 +1,922 @@
+[
+ {
+  "id": "minerva",
+  "name": "Minerva University",
+  "country": "США",
+  "city": "Worldwide",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.minerva.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №1). По этому PDF: регион — Worldwide, acceptance rate — 2%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "2%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "minerva-aid",
+    "name": "Need-based financial aid",
+    "type": "need",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.minerva.edu/undergraduate-program/tuition-aid/financial-aid/",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "nyuad",
+  "name": "New York University Abu Dhabi",
+  "country": "ОАЭ",
+  "city": "Абу-Даби (UAE International Campus)",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://nyuad.nyu.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №2). По этому PDF: регион — Абу-Даби (UAE International Campus), acceptance rate — 3%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "3%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "nyuad-aid",
+    "name": "Need-based financial aid",
+    "type": "need",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://nyuad.nyu.edu/en/admissions/undergraduate/scholarships-and-financial-aid.html",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "colorado-college",
+  "name": "Colorado College",
+  "country": "США",
+  "city": "штат Колорадо",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.coloradocollege.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №3). По этому PDF: регион — штат Колорадо, acceptance rate — 4%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "4%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "colorado-college-aid",
+    "name": "Need-based financial aid",
+    "type": "need",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.coloradocollege.edu/admission/for-students/admission-requirements/international-students/index.html",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "swarthmore",
+  "name": "Swarthmore College",
+  "country": "США",
+  "city": "штат Пенсильвания",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.swarthmore.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №4). По этому PDF: регион — штат Пенсильвания, acceptance rate — 7.8%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "7.8%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "swarthmore-aid",
+    "name": "Need-based financial aid",
+    "type": "need",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.swarthmore.edu/admissions-aid/international-students",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "bowdoin",
+  "name": "Bowdoin College",
+  "country": "США",
+  "city": "штат Мэн",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.bowdoin.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №5). По этому PDF: регион — штат Мэн, acceptance rate — 8.8%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "8.8%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "bowdoin-aid",
+    "name": "Need-based financial aid",
+    "type": "need",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.bowdoin.edu/student-aid/apply-for-aid/international-students.html",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "grinnell",
+  "name": "Grinnell College",
+  "country": "США",
+  "city": "штат Айова",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.grinnell.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №6). По этому PDF: регион — штат Айова, acceptance rate — 10%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "10%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "grinnell-aid",
+    "name": "Need-based financial aid",
+    "type": "need",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.grinnell.edu/admission/apply/international",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "hamilton",
+  "name": "Hamilton College",
+  "country": "США",
+  "city": "штат Нью-Йорк",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.hamilton.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №7). По этому PDF: регион — штат Нью-Йорк, acceptance rate — 14.1%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "14.1%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "hamilton-aid",
+    "name": "Need-based financial aid",
+    "type": "need",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.hamilton.edu/admission/finaid/international",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "cmu-qatar",
+  "name": "Carnegie Mellon University Qatar",
+  "country": "Катар",
+  "city": "международный кампус в Катаре",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.qatar.cmu.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №8). По этому PDF: регион — международный кампус в Катаре, acceptance rate — 20%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "20%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "cmu-qatar-aid",
+    "name": "Need-based financial aid",
+    "type": "need",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.qatar.cmu.edu/admission/how-to-apply/tuition-and-financial-aid/",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "northwestern-qatar",
+  "name": "Northwestern University in Qatar",
+  "country": "Катар",
+  "city": "международный кампус в Катаре",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.qatar.northwestern.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №9). По этому PDF: регион — международный кампус в Катаре, acceptance rate — 30%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "30%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "northwestern-qatar-aid",
+    "name": "Need-based financial aid",
+    "type": "need",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.qatar.northwestern.edu/admissions/undergraduate/tuition-aid.html",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "rochester",
+  "name": "University of Rochester",
+  "country": "США",
+  "city": "штат Нью-Йорк",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.rochester.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №10). По этому PDF: регион — штат Нью-Йорк, acceptance rate — 40.5%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "40.5%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "rochester-aid",
+    "name": "Need-based financial aid",
+    "type": "need",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.rochester.edu/financial-aid/international-undergraduates/",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "clark",
+  "name": "Clark University",
+  "country": "США",
+  "city": "штат Массачусетс",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.clarku.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №11). По этому PDF: регион — штат Массачусетс, acceptance rate — 48%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "48%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "clark-aid",
+    "name": "Presidential Scholarship",
+    "type": "merit",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.clarku.edu/offices/financial-aid/prospective-students/international-students/first-year-scholarships/",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "rhodes",
+  "name": "Rhodes College",
+  "country": "США",
+  "city": "штат Теннесси",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.rhodes.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №12). По этому PDF: регион — штат Теннесси, acceptance rate — 56.9%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "56.9%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "rhodes-aid",
+    "name": "Need-based and merit-based aid",
+    "type": "university",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.rhodes.edu/admission-aid/apply-rhodes/international-application-checklist",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "fiu",
+  "name": "Florida International University",
+  "country": "США",
+  "city": "штат Флорида",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://admissions.fiu.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №13). По этому PDF: регион — штат Флорида, acceptance rate — 64%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "64%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "fiu-aid",
+    "name": "Presidential Scholarship",
+    "type": "merit",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://admissions.fiu.edu/international/cost-and-aid/index.html",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "american-university",
+  "name": "American University",
+  "country": "США",
+  "city": "Вашингтон, округ Колумбия",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.american.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №14). По этому PDF: регион — Вашингтон, округ Колумбия, acceptance rate — 64.1%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "64.1%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "american-university-aid",
+    "name": "AU Emerging Global Leader Scholarship",
+    "type": "university",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.american.edu/admissions/international/au-egls-apply.cfm",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "sewanee",
+  "name": "Sewanee: The University of the South",
+  "country": "США",
+  "city": "штат Теннесси",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://new.sewanee.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №15). По этому PDF: регион — штат Теннесси, acceptance rate — 60.3%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "60.3%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "sewanee-aid",
+    "name": "Global Scholarships",
+    "type": "university",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://new.sewanee.edu/admission-aid/application-process/application-review/international-applicant/international-aid/#scholarships",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "centre",
+  "name": "Centre College",
+  "country": "США",
+  "city": "штат Кентукки",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.centre.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №16). По этому PDF: регион — штат Кентукки, acceptance rate — 68%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "68%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "centre-aid",
+    "name": "Lincoln Scholars Program",
+    "type": "merit",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.centre.edu/admission-aid/scholarships-fellowships/lincoln-scholars-program",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "hendrix",
+  "name": "Hendrix College",
+  "country": "США",
+  "city": "штат Арканзас",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.hendrix.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №17). По этому PDF: регион — штат Арканзас, acceptance rate — 68.3%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "68.3%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "hendrix-aid",
+    "name": "Hays Memorial Scholarship",
+    "type": "merit",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.hendrix.edu/admission/international.aspx?id=35098",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "lynn",
+  "name": "Lynn University",
+  "country": "США",
+  "city": "штат Флорида",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.lynn.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №18). По этому PDF: регион — штат Флорида, acceptance rate — 83%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "83%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "lynn-aid",
+    "name": "Presidential Scholarship",
+    "type": "merit",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.lynn.edu/admission/tuition-aid/financial-aid/presidential-scholarship",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "simmons",
+  "name": "Simmons University",
+  "country": "США",
+  "city": "штат Массачусетс",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.simmons.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №19). По этому PDF: регион — штат Массачусетс, acceptance rate — 83.5%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "83.5%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "simmons-aid",
+    "name": "Simmons Distinguished Scholars Award",
+    "type": "merit",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка. Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.simmons.edu/undergraduate/admission-and-financial-aid/tuition-financial-aid/types-financial-aid/scholarships/distinguished-scholar",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ },
+ {
+  "id": "wheaton-il",
+  "name": "Wheaton College",
+  "country": "США",
+  "city": "штат Иллинойс",
+  "program": "",
+  "degree": "Бакалавриат",
+  "status": "research",
+  "tier": "",
+  "website": "https://www.wheaton.edu/",
+  "portal": "",
+  "noAid": false,
+  "notes": "Добавлено из PDF «20 американских вузов, которые дадут вам полную стипендию» (сторонний список, №20). По этому PDF: регион — штат Иллинойс, acceptance rate — 86.3%. Цифры и условия не сверены с сайтом вуза.",
+  "acceptanceRate": "86.3%",
+  "sourceList": "pdf-20-us",
+  "createdAt": "2026-11-22",
+  "costs": {
+   "currency": "USD"
+  },
+  "deadlines": [],
+  "documents": [],
+  "files": [],
+  "scholarships": [
+   {
+    "id": "wheaton-il-aid",
+    "name": "Full-ride International Student Scholarship",
+    "type": "university",
+    "status": "planned",
+    "amount": null,
+    "include": true,
+    "covers": {
+     "tuition": "unknown",
+     "housing": "unknown",
+     "food": "unknown",
+     "insurance": "unknown",
+     "travel": "unknown"
+    },
+    "stipend": "",
+    "renewable": "unknown",
+    "conditions": "В PDF указано только название программы и ссылка (в PDF названа full-ride). Что покрывается, сумма и условия для иностранцев — проверьте по ссылке.",
+    "source": "https://www.wheaton.edu/admissions-and-aid/cost-and-financial-aid/",
+    "checkedAt": "",
+    "origin": "pdf"
+   }
+  ]
+ }
+]

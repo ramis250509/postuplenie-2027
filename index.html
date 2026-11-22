@@ -1,0 +1,1784 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<title>Поступление 2027</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap">
+<style>
+/* Layout: боковая навигация (десктоп) / нижняя панель (телефон) + одна колонка контента.
+   Карточки — только для объектов (вуз, стипендия, слой стоимости); остальное — списки. */
+:root{
+  --bg:#F1F4F6; --surface:#FFFFFF; --surface-2:#E9EEF1; --line:#D8E0E5;
+  --ink:#0F1F2B; --ink-2:#46596A; --ink-3:#768795;
+  --accent:#0A6F8C; --accent-ink:#FFFFFF; --accent-soft:#DAEEF3;
+  --ok:#1B8655; --ok-soft:#DCF1E6; --warn:#9E6410; --warn-soft:#FAEDD2;
+  --crit:#C2283F; --crit-soft:#FADFE3; --gold:#9A6A00; --gold-soft:#FFF0C2;
+  --info:#3B57BD; --info-soft:#E2E7F9;
+  --shadow:0 1px 2px rgba(15,31,43,.05),0 10px 24px -14px rgba(15,31,43,.22);
+  --f-display:"Unbounded","Golos Text",system-ui,sans-serif;
+  --f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r:14px; --r-sm:10px; --side:236px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0D1419; --surface:#141E25; --surface-2:#1B2731; --line:#26343F;
+  --ink:#E4ECF1; --ink-2:#A3B3BF; --ink-3:#71818D;
+  --accent:#4DB6D2; --accent-ink:#06222B; --accent-soft:#113340;
+  --ok:#4CC089; --ok-soft:#12321F; --warn:#E2A84B; --warn-soft:#382A10;
+  --crit:#FF6E80; --crit-soft:#3B1720; --gold:#F0BF4C; --gold-soft:#3A2D0B;
+  --info:#8EA4FF; --info-soft:#1C2547;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 28px -16px rgba(0,0,0,.7);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0D1419; --surface:#141E25; --surface-2:#1B2731; --line:#26343F;
+  --ink:#E4ECF1; --ink-2:#A3B3BF; --ink-3:#71818D;
+  --accent:#4DB6D2; --accent-ink:#06222B; --accent-soft:#113340;
+  --ok:#4CC089; --ok-soft:#12321F; --warn:#E2A84B; --warn-soft:#382A10;
+  --crit:#FF6E80; --crit-soft:#3B1720; --gold:#F0BF4C; --gold-soft:#3A2D0B;
+  --info:#8EA4FF; --info-soft:#1C2547;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 28px -16px rgba(0,0,0,.7);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{margin:0;color:var(--ink);font:15px/1.5 var(--f-body);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1{font:600 clamp(22px,3vw,28px)/1.2 var(--f-display);letter-spacing:-.01em}
+h2{font:600 17px/1.3 var(--f-body)}
+h3{font:600 16px/1.3 var(--f-body)}
+p{margin:0}
+.muted{color:var(--ink-2)}
+.faint{color:var(--ink-3)}
+.small{font-size:13px}
+.eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+
+/* ---------- shell ---------- */
+.shell{min-height:100vh}
+.side{position:fixed;top:0;bottom:0;left:0;width:var(--side);padding:22px 14px calc(18px + env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));border-right:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;gap:18px;z-index:5}
+.brand{display:flex;align-items:center;gap:10px;padding:0 8px}
+.brand-mark{width:34px;height:34px;border-radius:10px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:600 13px var(--f-display)}
+.brand b{display:block;font:600 14px/1.2 var(--f-display)}
+.brand span{font-size:12.5px;color:var(--ink-3)}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav a{display:flex;align-items:center;gap:11px;padding:9px 10px;border-radius:10px;color:var(--ink-2);font-weight:500;text-decoration:none;transition:background .15s,color .15s}
+.nav a:hover{background:var(--surface-2);color:var(--ink)}
+.nav a.on{background:var(--accent-soft);color:var(--accent)}
+.nav .count{margin-left:auto;font-size:12px;background:var(--surface-2);color:var(--ink-2);border-radius:20px;padding:1px 8px}
+.nav a.on .count{background:var(--surface);color:var(--accent)}
+.nav .count.hot{background:var(--crit-soft);color:var(--crit)}
+.side-actions{display:grid;gap:8px;padding:0 4px}
+.side-foot{margin-top:auto;padding:0 8px;font-size:12px;color:var(--ink-3);display:flex;gap:8px;align-items:flex-start}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ink-3);flex:none;margin-top:5px}
+.dot.ok{background:var(--ok)} .dot.warn{background:var(--warn)}
+.main{margin-left:var(--side);padding-block:28px 64px;padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1120px;margin:0 auto;display:grid;gap:22px}
+.bottom{display:none}
+.fab{display:none}
+
+@media (max-width:860px){
+  .side{display:none}
+  .main{margin-left:0;padding-block:18px calc(92px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .bottom{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:20;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+  .bottom a,.bottom button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;font-size:11px;font-weight:500;color:var(--ink-3);text-decoration:none;background:none;border:0;position:relative}
+  .bottom a.on{color:var(--accent)}
+  .bottom .plus{width:46px;height:46px;border-radius:15px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;margin:-2px auto 0;box-shadow:var(--shadow)}
+  .bottom .badge-n{position:absolute;top:2px;left:calc(50% + 6px);background:var(--crit);color:#fff;font-size:10px;line-height:16px;min-width:16px;border-radius:8px;padding:0 4px}
+}
+
+/* ---------- generic ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.section{display:grid;gap:14px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.sec-head h2{display:flex;align-items:center;gap:8px}
+.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.page-head .eyebrow{margin-bottom:6px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:980px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:500;cursor:pointer;transition:background .15s,border-color .15s,transform .1s;white-space:nowrap;text-decoration:none}
+.btn:hover{background:var(--surface-2);text-decoration:none}
+.btn:active{transform:scale(.98)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.07);background:var(--accent)}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--ink-2)}
+.btn.ghost:hover{background:var(--surface-2);color:var(--ink)}
+.btn.danger{color:var(--crit);border-color:color-mix(in srgb,var(--crit) 35%,var(--line))}
+.btn.danger.armed{background:var(--crit);color:#fff;border-color:var(--crit)}
+.btn.sm{padding:6px 10px;font-size:13px;border-radius:8px}
+.btn.icon{padding:7px;width:34px;height:34px}
+.btn[disabled]{opacity:.5;pointer-events:none}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:20px;font-size:12.5px;font-weight:600;white-space:nowrap;background:var(--surface-2);color:var(--ink-2)}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.t-neutral{background:var(--surface-2);color:var(--ink-2)}
+.t-accent{background:var(--accent-soft);color:var(--accent)}
+.t-info{background:var(--info-soft);color:var(--info)}
+.t-ok{background:var(--ok-soft);color:var(--ok)}
+.t-warn{background:var(--warn-soft);color:var(--warn)}
+.t-crit{background:var(--crit-soft);color:var(--crit)}
+.t-gold{background:var(--gold-soft);color:var(--gold)}
+.t-muted{background:var(--surface-2);color:var(--ink-3)}
+.t-unv{background:transparent;color:var(--ink-3);box-shadow:inset 0 0 0 1px var(--line)}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.src{display:inline-flex;align-items:center;gap:5px;font-size:12px;line-height:1.3;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.src.ok{color:var(--ok)}
+.src.stale{color:var(--warn)}
+.src.unv{color:var(--ink-3);border:1px dashed var(--line);padding:1px 7px;border-radius:6px}
+.empty{padding:22px;text-align:center;color:var(--ink-2);display:grid;gap:10px;justify-items:center}
+.notice{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:12px;background:var(--warn-soft);color:var(--warn);font-size:14px}
+.notice.info{background:var(--accent-soft);color:var(--accent)}
+.notice .btn{margin-left:auto}
+.notice>svg{flex:none;margin-top:2px}
+.notice-body{display:grid;gap:4px;min-width:0}
+.notice b{font-weight:600}
+
+/* ---------- animation ---------- */
+.view{animation:viewIn .22s ease-out both}
+@keyframes viewIn{from{opacity:.001;transform:translateY(6px)}to{opacity:1;transform:none}}
+.grow{transform-origin:left;animation:grow .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ---------- home ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);overflow:hidden}
+.hero-main{padding:22px 24px;display:grid;gap:8px;align-content:start}
+.dday{display:flex;align-items:baseline;gap:8px;margin:4px 0 2px}
+.dday .n{font:600 56px/1 var(--f-display);letter-spacing:-.03em}
+.dday .u{font-size:16px;font-weight:600;color:var(--ink-2)}
+.dday.crit .n{color:var(--crit)} .dday.warn .n{color:var(--warn)} .dday.accent .n{color:var(--accent)}
+.hero-title{font-size:18px;font-weight:600}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;border-left:1px solid var(--line);background:var(--surface-2)}
+.stat{padding:18px 20px;display:grid;gap:2px;align-content:start;border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+.stat:nth-child(odd){border-right:1px solid var(--line)}
+.stat:nth-last-child(-n+2){border-bottom:0}
+a.stat:hover{background:color-mix(in srgb,var(--surface) 50%,transparent);text-decoration:none}
+.stat b{font:600 26px/1.15 var(--f-display)}
+.stat span{font-size:13px;color:var(--ink-2)}
+.stat.hot b{color:var(--crit)}
+@media (max-width:720px){.hero{grid-template-columns:minmax(0,1fr)}.hero-stats{border-left:0;border-top:1px solid var(--line)}.dday .n{font-size:46px}.hero-main{padding:18px}}
+.pipe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.pipe a{display:grid;gap:4px;padding:14px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--line);color:inherit;text-decoration:none;transition:border-color .15s,transform .15s}
+.pipe a:hover{border-color:var(--accent);transform:translateY(-1px)}
+.pipe b{font:600 24px/1.1 var(--f-display)}
+.pipe .lbl{font-size:13px;font-weight:600;color:var(--ink-2)}
+.pipe .names{font-size:12.5px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pipe .bar{height:4px;border-radius:2px;background:var(--surface-2);overflow:hidden}
+.pipe .bar i{display:block;height:100%;background:var(--accent)}
+@media (max-width:720px){.pipe{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.list{display:grid}
+.list>*+*{border-top:1px solid var(--line)}
+.panel{padding:6px 0}
+.panel-head{padding:14px 18px 8px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.panel-foot{padding:10px 18px 12px}
+.dl-row{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 18px;text-decoration:none;color:inherit;transition:background .15s}
+a.dl-row:hover{background:var(--surface-2);text-decoration:none}
+.dl-date{display:grid;justify-items:center;line-height:1.05;border-radius:10px;padding:6px 0;background:var(--surface-2)}
+.dl-date b{font:600 18px var(--f-display)}
+.dl-date span{font-size:11px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.04em}
+.dl-body{min-width:0;display:grid;gap:1px}
+.dl-title{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dl-sub{font-size:13px;color:var(--ink-2)}
+.dl-meta{font-size:12px;color:var(--ink-3)}
+.dl-right{display:grid;justify-items:end;gap:4px}
+.done-row{opacity:.55}
+.done-row .dl-title,.done-row .t-title{text-decoration:line-through}
+.task{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:start;padding:11px 18px}
+.chk{appearance:none;-webkit-appearance:none;width:22px;height:22px;border-radius:7px;border:2px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center;margin-top:1px;transition:background .15s,border-color .15s}
+.chk:hover{border-color:var(--accent)}
+.chk:checked{background:var(--ok);border-color:var(--ok)}
+.chk:checked::after{content:"";width:10px;height:6px;border:2.5px solid #fff;border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px);animation:pop .2s ease-out}
+@keyframes pop{from{transform:rotate(-45deg) scale(.3)}to{transform:rotate(-45deg) scale(1) translate(1px,-1px)}}
+.t-title{font-weight:500;cursor:pointer}
+.t-meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-3);margin-top:2px}
+.t-meta a{color:var(--ink-2)}
+.prio{color:var(--crit);font-weight:600}
+.fin-row{display:grid;grid-template-columns:minmax(150px,1.1fr) minmax(0,2fr) minmax(120px,auto);gap:14px;align-items:center;padding:13px 18px;text-decoration:none;color:inherit}
+a.fin-row:hover{background:var(--surface-2);text-decoration:none}
+.fin-name{min-width:0}
+.fin-name b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fin-track{position:relative;height:12px;border-radius:6px;background:var(--surface-2);overflow:visible}
+.fin-track .cov{position:absolute;inset:0 auto 0 0;border-radius:6px;background:repeating-linear-gradient(-45deg,var(--ok-soft) 0 6px,color-mix(in srgb,var(--ok) 25%,var(--ok-soft)) 6px 9px)}
+.fin-track .pay{position:absolute;inset:0 auto 0 0;border-radius:6px;background:var(--accent)}
+.fin-track .pay.offer{background:var(--ok)}
+.fin-track .budget{position:absolute;top:-5px;bottom:-5px;width:2px;background:var(--ink);border-radius:1px}
+.fin-amt{text-align:right;display:grid;gap:1px}
+.fin-amt b{font:600 16px var(--f-display)}
+.fin-amt span{font-size:12px;color:var(--ink-3)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2);padding:6px 18px 14px}
+.legend i{display:inline-block;width:12px;height:8px;border-radius:3px;margin-right:6px;vertical-align:middle}
+@media (max-width:640px){.fin-row{grid-template-columns:minmax(0,1fr) auto;row-gap:8px}.fin-track{grid-column:1/-1;grid-row:2}}
+
+/* ---------- unis ---------- */
+.toolbar{display:grid;gap:12px}
+.search{position:relative}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink-3)}
+.search input{padding-left:38px}
+.filters{display:grid;gap:10px}
+.frow{display:flex;gap:8px;align-items:center;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.frow::-webkit-scrollbar{display:none}
+.frow .fl{font-size:12px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;min-width:92px;flex:none}
+.chip{flex:none;padding:6px 12px;border-radius:20px;border:1px solid var(--line);background:var(--surface);font-size:13px;font-weight:500;cursor:pointer;color:var(--ink-2);transition:all .15s}
+.chip:hover{border-color:var(--ink-3)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.chip .n{opacity:.6;margin-left:4px}
+.ftoggle{display:none}
+@media (max-width:860px){.head-actions{display:none}}
+@media (max-width:720px){.frow .fl{display:none}.ftoggle{display:inline-flex}.filters.closed{display:none}}
+.uni-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+@media (max-width:400px){.uni-grid{grid-template-columns:minmax(0,1fr)}}
+.uni-card{position:relative;padding:16px 18px;display:grid;gap:12px;color:inherit;text-decoration:none;transition:border-color .15s,box-shadow .2s,transform .2s;align-content:start}
+.uni-card:hover{border-color:color-mix(in srgb,var(--accent) 50%,var(--line));box-shadow:var(--shadow);transform:translateY(-2px);text-decoration:none}
+.uc-top{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.uc-name{display:grid;gap:2px}
+.uc-name h3{font-size:17px}
+.uc-prog{font-size:13.5px;color:var(--ink-2)}
+.covers{display:flex;gap:6px;flex-wrap:wrap}
+.cv{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:500;padding:3px 8px;border-radius:7px}
+.cv-yes{background:var(--ok-soft);color:var(--ok)}
+.cv-partial{background:var(--warn-soft);color:var(--warn)}
+.cv-no{background:var(--crit-soft);color:var(--crit)}
+.cv-unknown{color:var(--ink-3);box-shadow:inset 0 0 0 1px var(--line)}
+.uc-foot{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-top:12px;border-top:1px solid var(--line)}
+.kv{display:grid;gap:1px;min-width:0}
+.kv label{font-size:11.5px;color:var(--ink-3);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.kv b{font-size:15.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kv span{font-size:12px;color:var(--ink-3)}
+.progress{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--ink-3)}
+.progress .bar{flex:1;height:5px;border-radius:3px;background:var(--surface-2);overflow:hidden}
+.progress .bar i{display:block;height:100%;background:var(--ok);border-radius:3px}
+.ex-tag{margin-left:auto;font-size:11px;font-weight:600;color:var(--ink-3);border:1px dashed var(--line);border-radius:6px;padding:1px 6px}
+
+/* ---------- detail ---------- */
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2);font-size:14px;font-weight:500}
+.d-head{display:grid;gap:12px}
+.d-title{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.d-title h1{font-size:clamp(22px,3.4vw,30px)}
+.d-sub{display:flex;gap:6px 14px;flex-wrap:wrap;color:var(--ink-2);font-size:14.5px;margin-top:6px}
+.status-select{appearance:none;-webkit-appearance:none;border:0;border-radius:20px;padding:7px 32px 7px 14px;font-weight:600;font-size:14px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 17px) 52%,calc(100% - 12px) 52%;background-size:5px 5px;background-repeat:no-repeat}
+.jump{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;position:sticky;top:env(safe-area-inset-top,0px);z-index:4;background:var(--bg);padding:8px 0;margin:-8px 0}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:500;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);text-decoration:none}
+.jump a:hover{color:var(--ink);border-color:var(--ink-3)}
+.sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.sum>div{padding:16px 18px;display:grid;gap:6px;align-content:start}
+.sum>div+div{border-left:1px solid var(--line)}
+.sum .big{font:600 26px/1.15 var(--f-display)}
+@media (max-width:760px){.sum{grid-template-columns:minmax(0,1fr)}.sum>div+div{border-left:0;border-top:1px solid var(--line)}}
+.anchor{scroll-margin-top:64px}
+.layers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:980px){.layers{grid-template-columns:minmax(0,1fr)}}
+.layer{padding:16px 18px;display:grid;gap:12px;align-content:start}
+.layer-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.layer-head .eyebrow{display:block}
+.layer-head h3{margin-top:3px}
+.lines{display:grid;gap:7px;font-size:14px}
+.line{display:flex;justify-content:space-between;gap:12px}
+.line span:first-child{color:var(--ink-2)}
+.line.total{border-top:1px solid var(--line);padding-top:8px;font-weight:600}
+.line.minus span:last-child{color:var(--ok)}
+.line .nv{color:var(--ink-3);font-size:12.5px}
+.layer-total{font:600 24px/1.1 var(--f-display)}
+.sch{padding:16px 18px;display:grid;gap:10px}
+.sch-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.sch-meta{display:flex;gap:6px 10px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--ink-2)}
+.cond{font-size:14px;color:var(--ink-2);white-space:pre-wrap}
+.toggle{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2);cursor:pointer}
+.toggle input{width:16px;height:16px;accent-color:var(--accent)}
+.docs .doc{display:flex;align-items:center;gap:10px;padding:10px 18px}
+.doc-name{flex:1;min-width:0}
+.doc-st{border:0;cursor:pointer}
+.addline{display:flex;gap:8px;padding:12px 18px}
+.addline .inp{flex:1;min-width:0}
+.dl-actions{display:flex;gap:4px;align-items:center}
+
+/* ---------- forms / sheet ---------- */
+.overlay{position:fixed;inset:0;z-index:50;background:rgba(8,16,22,.45);display:grid;place-items:center;padding:24px;animation:fade .18s ease-out}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.sheet{width:min(640px,100%);max-height:min(88vh,860px);display:flex;flex-direction:column;background:var(--surface);border-radius:18px;box-shadow:0 30px 80px -20px rgba(0,0,0,.45);animation:rise .24s cubic-bezier(.2,.8,.2,1)}
+@keyframes rise{from{transform:translateY(16px);opacity:.4}to{transform:none;opacity:1}}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.sheet-body{padding:18px 20px;overflow:auto;display:grid;gap:16px;overscroll-behavior:contain}
+.sheet-foot{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:14px 20px;border-top:1px solid var(--line)}
+.sheet-foot .row{margin-left:auto}
+@media (max-width:640px){
+  .overlay{place-items:end stretch;padding:0}
+  .sheet{width:100%;max-height:92vh;border-radius:18px 18px 0 0;animation:up .26s cubic-bezier(.2,.8,.2,1)}
+  .sheet-foot{padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+  @keyframes up{from{transform:translateY(40%)}to{transform:none}}
+}
+.field{display:grid;gap:6px;min-width:0}
+.f-label{font-size:13px;font-weight:600;color:var(--ink-2)}
+.f-hint{font-size:12.5px;color:var(--ink-3)}
+.f-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.f-row.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:520px){.f-row,.f-row.three{grid-template-columns:minmax(0,1fr)}.f-row.keep{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.inp{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);transition:border-color .15s,box-shadow .15s;min-height:42px}
+.inp:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+textarea.inp{min-height:84px;resize:vertical}
+select.inp{cursor:pointer}
+.inline{display:flex;gap:8px}
+.inline .inp{flex:1;min-width:0}
+.fs{border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:12px;margin:0}
+.fs legend{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);padding:0 6px}
+.seg{display:inline-flex;background:var(--surface-2);border-radius:10px;padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;padding:6px 10px;border-radius:8px;font-size:13px;font-weight:500;color:var(--ink-2);cursor:pointer}
+.seg button.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.cover-grid{display:grid;gap:10px}
+.cover-grid .crow{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.choose{display:grid;gap:10px}
+.choose button{display:flex;gap:14px;align-items:center;text-align:left;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--surface);cursor:pointer}
+.choose button:hover{border-color:var(--accent)}
+.choose b{display:block}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--surface);padding:10px 16px;border-radius:12px;font-size:14px;font-weight:500;box-shadow:var(--shadow);animation:toast .25s ease-out;max-width:calc(100% - 32px)}
+@media (max-width:860px){.toast{bottom:calc(88px + env(safe-area-inset-bottom,0px))}}
+@keyframes toast{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}
+.guide{display:grid;gap:12px;counter-reset:g}
+.guide li{list-style:none;display:grid;grid-template-columns:28px 1fr;gap:10px;counter-increment:g}
+.guide li::before{content:counter(g);width:26px;height:26px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:13px}
+.guide{padding:0;margin:0}
+.rate-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.skel{height:120px;border-radius:var(--r);background:linear-gradient(90deg,var(--surface) 25%,var(--surface-2) 50%,var(--surface) 75%);background-size:300% 100%;animation:sk 1.4s infinite linear}
+@keyframes sk{from{background-position:100% 0}to{background-position:0 0}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- страны ---------- */
+.cgroups{display:grid;gap:12px}
+.cgroup{display:grid;gap:12px}
+.cg-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;width:100%;text-align:left;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:var(--surface);cursor:pointer;transition:border-color .15s}
+.cg-head:hover{border-color:var(--ink-3)}
+.cg-chev{display:grid;place-items:center;width:26px;height:26px;border-radius:8px;background:var(--surface-2);color:var(--ink-2);transition:transform .2s;flex:none}
+.cg-chev.open{transform:rotate(90deg)}
+.cg-title{display:flex;align-items:baseline;gap:8px;min-width:0}
+.cg-title b{font:600 17px/1.2 var(--f-display)}
+.cg-meta{display:flex;gap:6px 12px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin-left:auto}
+.cg-meta span{white-space:nowrap}
+@media (max-width:640px){.cg-meta{margin-left:38px;flex-basis:calc(100% - 38px);min-width:0}.cg-meta span{white-space:normal}}
+.wrap>*,.cgroup>*{min-width:0}
+.sortsel{display:flex;align-items:center;gap:8px;flex:none}
+.sortsel select{min-height:34px;padding:5px 10px;border-radius:20px;font-size:13px}
+.ctiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.ctile{display:grid;gap:6px;padding:14px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--line);color:inherit;text-decoration:none;transition:border-color .15s,transform .15s}
+.ctile:hover{border-color:var(--accent);transform:translateY(-1px);text-decoration:none}
+.ctile b{font:600 16px/1.2 var(--f-display)}
+.ctile .mini{display:flex;gap:6px;flex-wrap:wrap}
+/* ---------- требования, файлы, импорт ---------- */
+.req{display:grid}
+.req-row{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);gap:12px;padding:10px 18px;font-size:14px}
+.req-row+.req-row{border-top:1px solid var(--line)}
+.req-k{color:var(--ink-2)}
+.req-v{white-space:pre-wrap;min-width:0}
+.req-foot{padding:10px 18px 12px;border-top:1px solid var(--line)}
+@media (max-width:560px){.req-row{grid-template-columns:minmax(0,1fr);gap:2px}}
+.nv{color:var(--ink-3);font-size:12.5px}
+.file{display:flex;align-items:center;gap:12px;padding:10px 18px;flex-wrap:wrap}
+.file-ic{width:36px;height:36px;border-radius:9px;background:var(--surface-2);display:grid;place-items:center;color:var(--ink-2);flex:none;font-size:10px;font-weight:700}
+.file-main{flex:1;min-width:160px;display:grid;gap:2px}
+.file-main a{font-weight:500;word-break:break-word}
+.file-acts{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.file-acts select{min-height:32px;padding:4px 8px;font-size:12.5px;border-radius:8px}
+.drop{display:grid;place-items:center;gap:8px;text-align:center;padding:26px 16px;border:2px dashed var(--line);border-radius:14px;cursor:pointer;color:var(--ink-2);transition:border-color .15s,background .15s}
+.drop:hover,.drop.over{border-color:var(--accent);background:var(--accent-soft)}
+.drop b{color:var(--ink)}
+.working{display:grid;gap:14px;justify-items:center;text-align:center;padding:28px 10px}
+.spin{width:34px;height:34px;border-radius:50%;border:3px solid var(--surface-2);border-top-color:var(--accent);animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.imp{display:grid;gap:10px}
+.imp-h{display:flex;align-items:center;gap:10px;font-weight:600}
+.imp-h .faint{font-weight:400}
+.imp-item{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start;padding:8px 10px;border-radius:10px;background:var(--surface-2);cursor:pointer}
+.imp-item input{margin-top:3px;width:16px;height:16px;accent-color:var(--accent)}
+.imp-item .small{display:block}
+.imp-kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 14px;font-size:13.5px}
+@media (max-width:520px){.imp-kv{grid-template-columns:minmax(0,1fr)}}
+.tabs{display:inline-flex;background:var(--surface-2);border-radius:10px;padding:3px;gap:2px;justify-self:start}
+.tabs button{border:0;background:transparent;padding:7px 14px;border-radius:8px;font-weight:500;color:var(--ink-2);cursor:pointer}
+.tabs button.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+</style>
+
+<div id="app"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/htm@3.1.1/preact/standalone.umd.js"></script>
+<script>
+(function(){
+'use strict';
+if(!window.htmPreact){document.getElementById('app').innerHTML='<p style="padding:24px">Не удалось загрузить интерфейс. Проверьте подключение к интернету и обновите страницу.</p>';return;}
+const {html, render, useState, useEffect, useMemo, useRef} = window.htmPreact;
+
+/* =========================================================
+   Справочники
+   ========================================================= */
+const BISHKEK = 'Asia/Bishkek';
+const STATUSES = [
+  {id:'research',  label:'Изучаю',          tone:'neutral'},
+  {id:'preparing', label:'Готовлю заявку',  tone:'accent'},
+  {id:'submitted', label:'Подано',          tone:'info'},
+  {id:'interview', label:'Интервью',        tone:'info'},
+  {id:'admitted',  label:'Принят',          tone:'ok'},
+  {id:'waitlist',  label:'Лист ожидания',   tone:'warn'},
+  {id:'committed', label:'Выбран',          tone:'gold'},
+  {id:'rejected',  label:'Отказ',           tone:'crit'},
+  {id:'dropped',   label:'Не подаю',        tone:'muted'},
+];
+const ST = Object.fromEntries(STATUSES.map(s=>[s.id,s]));
+const PIPE = [
+  {id:'prep',   label:'Изучаю и готовлю', st:['research','preparing']},
+  {id:'sent',   label:'Подано',           st:['submitted','interview']},
+  {id:'result', label:'Есть решение',     st:['admitted','waitlist','committed','rejected']},
+  {id:'closed', label:'Не подаю',         st:['dropped']},
+];
+const DL_TYPES = {application:'Заявка', scholarship:'Стипендия', finaid:'Фин. помощь', documents:'Документы', test:'Экзамен', interview:'Интервью', decision:'Решение / ответ', other:'Другое'};
+const TZS = [
+  [BISHKEK,'Бишкек'],['America/New_York','Восточное время США (ET)'],['America/Chicago','Центральное время США (CT)'],
+  ['America/Los_Angeles','Тихоокеанское время США (PT)'],['America/Toronto','Торонто'],['Europe/London','Лондон'],
+  ['Europe/Berlin','Центральная Европа (CET)'],['Europe/Budapest','Будапешт'],['Europe/Istanbul','Стамбул'],
+  ['Asia/Dubai','Дубай / Абу-Даби'],['Asia/Seoul','Сеул'],['Asia/Tokyo','Токио'],['Asia/Shanghai','Китай'],
+  ['Asia/Hong_Kong','Гонконг'],['Asia/Singapore','Сингапур'],['UTC','UTC'],
+];
+const TZ_SHORT = {[BISHKEK]:'по Бишкеку','America/New_York':'ET','America/Chicago':'CT','America/Los_Angeles':'PT','America/Toronto':'ET','Europe/London':'Лондон','Europe/Berlin':'CET','Europe/Budapest':'Будапешт','Europe/Istanbul':'Стамбул','Asia/Dubai':'Дубай','Asia/Seoul':'Сеул','Asia/Tokyo':'Токио','Asia/Shanghai':'Китай','Asia/Hong_Kong':'Гонконг','Asia/Singapore':'Сингапур','UTC':'UTC'};
+const CURRENCIES = ['USD','EUR','GBP','CAD','AUD','CHF','TRY','HUF','CZK','PLN','KRW','JPY','CNY','HKD','SGD','MYR','AED','QAR','SAR','KZT','KGS'];
+const RATE_CURRENCIES = CURRENCIES.filter(c=>c!=='USD');
+const COST_ITEMS = [['tuition','Обучение (tuition)'],['fees','Обязательные сборы'],['housing','Жильё'],['food','Питание'],['insurance','Медстраховка'],['books','Книги и материалы'],['personal','Личные расходы'],['travel','Перелёты']];
+const COVER_KEYS = [['tuition','Обучение'],['housing','Жильё'],['food','Питание'],['insurance','Страховка'],['travel','Перелёт']];
+const COVER_LV = {yes:'покрывается', partial:'частично', no:'не покрывается', unknown:'не проверено'};
+const COVER_OPTS = [['yes','Да'],['partial','Частично'],['no','Нет'],['unknown','Не проверено']];
+const COVER_RANK = {yes:3, partial:2, unknown:1, no:0};
+const SCH_TYPES = {need:'Need-based (по нужде)', merit:'Merit (за достижения)', government:'Государственная', university:'Университетская', external:'Внешний фонд'};
+const SCH_STATUS = {planned:'Планирую подать', applied:'Подана', awarded:'Получена', rejected:'Отказ', na:'Не подаю'};
+const SCH_TONE = {planned:'neutral', applied:'info', awarded:'ok', rejected:'crit', na:'muted'};
+const DOC_ST = [['todo','Нужно','neutral'],['progress','В работе','warn'],['ready','Готов','ok'],['sent','Отправлен','info']];
+const TIERS = {reach:'Мечта', target:'Реально', safety:'Запасной'};
+const FUNDING = {
+  fullride:{label:'Full ride', tone:'gold'},
+  need:{label:'Need-based помощь', tone:'accent'},
+  partial:{label:'Частичное финансирование', tone:'info'},
+  none:{label:'Без финансирования', tone:'muted'},
+  unknown:{label:'Финансирование не проверено', tone:'unv'},
+};
+const DEFAULT_SETTINGS = {rates:{}, ratesDate:'', ratesSource:'', budgetUSD:null};
+const REQ_FIELDS = [['platform','Где подавать'],['tests','Тесты (SAT, ACT и др.)'],['english','Английский (IELTS, TOEFL, Duolingo)'],['gpa','Оценки / GPA'],['essays','Эссе'],['recommendations','Рекомендации'],['interview','Интервью'],['appFee','Сбор за заявку'],['feeWaiver','Освобождение от сбора'],['other','Другое']];
+const FILE_KINDS = {brochure:'Брошюра / требования', cost:'Стоимость', scholarship:'Стипендия', award:'Award letter', letter:'Письмо вуза', other:'Другое'};
+const SORTS = {deadline:'Ближайший дедлайн', name:'Название', cost:'Остаток: дешевле', status:'Статус заявки', tier:'Категория'};
+const SENT_ST = ['submitted','interview','admitted','waitlist','committed','rejected'];
+const PDFJS = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174';
+
+/* =========================================================
+   Утилиты
+   ========================================================= */
+const pad = n => String(n).padStart(2,'0');
+const todayISO = () => { const d=new Date(); return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); };
+const uid = p => p+'-'+Math.random().toString(36).slice(2,8)+Date.now().toString(36).slice(-4);
+const num = v => typeof v==='number' && isFinite(v);
+const toNum = v => { if(v===''||v==null) return null; const n=Number(String(v).replace(/\s/g,'').replace(',','.')); return isFinite(n)?n:null; };
+const clone = o => JSON.parse(JSON.stringify(o===undefined?null:o));
+function plural(n,one,few,many){const a=Math.abs(n)%100,b=a%10;if(a>10&&a<20)return many;if(b>1&&b<5)return few;if(b===1)return one;return many;}
+function parseISO(iso){const [y,m,d]=String(iso).split('-').map(Number);return new Date(y,(m||1)-1,d||1);}
+function fmtDate(iso,opts){if(!iso)return '';try{return new Intl.DateTimeFormat('ru-RU',opts||{day:'numeric',month:'short',year:'numeric'}).format(parseISO(iso)).replace(/\s?г\.$/,'');}catch(e){return iso;}}
+function startOfToday(){const d=new Date();d.setHours(0,0,0,0);return d.getTime();}
+function daysUntil(iso){return Math.round((parseISO(iso).getTime()-startOfToday())/864e5);}
+function daysSince(iso){return Math.floor((startOfToday()-parseISO(iso).getTime())/864e5);}
+function hostOf(u){try{return new URL(u).hostname.replace(/^www\./,'');}catch(e){return 'ссылка';}}
+function safeUrl(u){try{const x=new URL(u);return /^https?:$/.test(x.protocol)?x.href:null;}catch(e){return null;}}
+function fmtMoney(n,cur){if(!num(n))return '—';try{return new Intl.NumberFormat('ru-RU',{style:'currency',currency:cur||'USD',maximumFractionDigits:0}).format(n);}catch(e){return Math.round(n).toLocaleString('ru-RU')+' '+(cur||'');}}
+function getPath(o,p){return p.split('.').reduce((a,k)=>a==null?a:a[k],o);}
+function setPath(o,p,v){const ks=p.split('.');let c=o;for(let i=0;i<ks.length-1;i++){if(c[ks[i]]==null||typeof c[ks[i]]!=='object')c[ks[i]]={};c=c[ks[i]];}c[ks[ks.length-1]]=v;}
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+const isVerified = f => !!(f && f.source && f.checkedAt);
+const toast = m => window.__toast && window.__toast(m);
+
+/* ----- время дедлайнов: перевод в бишкекское ----- */
+function tzOffset(tz,ms){
+  try{
+    const f=new Intl.DateTimeFormat('en-US',{timeZone:tz,hourCycle:'h23',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    const p={};f.formatToParts(new Date(ms)).forEach(x=>p[x.type]=x.value);
+    return Date.UTC(+p.year,+p.month-1,+p.day,(+p.hour)%24,+p.minute,+p.second)-ms;
+  }catch(e){return 6*36e5;}
+}
+function deadlineInstant(d){
+  if(!d||!d.date)return null;
+  const [y,m,day]=d.date.split('-').map(Number);
+  const [hh,mm]=(d.time||'23:59').split(':').map(Number);
+  const tz=d.time?(d.tz||BISHKEK):BISHKEK;
+  const guess=Date.UTC(y,m-1,day,hh||0,mm||0);
+  const off=tzOffset(tz,guess);let inst=guess-off;
+  const off2=tzOffset(tz,inst);if(off2!==off)inst=guess-off2;
+  return inst;
+}
+function fmtBishkek(ms){try{return new Intl.DateTimeFormat('ru-RU',{timeZone:BISHKEK,day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(ms));}catch(e){return '';}}
+function deadlineLine(d){
+  const parts=[fmtDate(d.date)];
+  if(d.time){
+    parts.push(d.time+' '+(TZ_SHORT[d.tz||BISHKEK]||d.tz));
+    if(d.tz&&d.tz!==BISHKEK){parts.push('→ '+fmtBishkek(deadlineInstant(d))+' по Бишкеку');}
+  }
+  return parts.join(' · ');
+}
+function countdown(inst){
+  const ms=inst-Date.now();
+  if(ms<0)return {txt:'прошёл',tone:'muted',n:null,unit:''};
+  const h=ms/36e5;
+  if(h<48){const n=Math.max(1,Math.floor(h));return {txt:n+' ч',tone:'crit',n,unit:plural(n,'час','часа','часов')};}
+  const d=Math.ceil(ms/864e5);
+  return {txt:d+' дн.',tone:d<=7?'crit':d<=21?'warn':'accent',n:d,unit:plural(d,'день','дня','дней')};
+}
+
+/* ----- финансы ----- */
+function layerSum(layer){
+  if(!layer)return null;const it=layer.items||{};let s=0,k=0;
+  for(const [key] of COST_ITEMS){if(num(it[key])){s+=it[key];k++;}}
+  if(num(layer.total))return {total:layer.total,known:k,official:true};
+  return k?{total:s,known:k,official:false}:null;
+}
+function activeSch(u){return (u.scholarships||[]).filter(s=>s.status!=='rejected'&&s.status!=='na');}
+function finance(u){
+  const c=u.costs||{};const cur=c.currency||'USD';
+  const pub=layerSum(c.published),est=layerSum(c.estimate);
+  const baseLayer=est?c.estimate:c.published;const base=est||pub;
+  let cov=0;const covParts=[],uncounted=[];
+  if(base){
+    const items=(baseLayer&&baseLayer.items)||{};
+    for(const s of activeSch(u)){
+      if(s.include===false)continue;
+      let v=0;
+      if(num(s.amount))v=s.amount;
+      else{const cv=s.covers||{};
+        if(cv.tuition==='yes')v+=(items.tuition||0)+(items.fees||0);
+        for(const k of ['housing','food','insurance','travel'])if(cv[k]==='yes')v+=items[k]||0;}
+      if(v>0){cov+=v;covParts.push({name:s.name,v});}else uncounted.push(s.name);
+    }
+    cov=Math.min(cov,base.total);
+  }
+  const prelim=base?Math.max(0,base.total-cov):null;
+  const o=c.offer||{};
+  const offerNet=num(o.net)?o.net:(num(o.coa)&&num(o.grants)?Math.max(0,o.coa-o.grants):null);
+  const mine=offerNet!=null?offerNet:prelim;
+  const basis=offerNet!=null?'offer':prelim!=null?'prelim':'none';
+  return {cur,pub,est,base,baseKind:est?'estimate':'published',cov,covParts,uncounted,prelim,offerNet,mine,basis};
+}
+const BASIS = {offer:{label:'по предложению вуза',tone:'ok'},prelim:{label:'предварительный расчёт',tone:'accent'},none:{label:'нельзя рассчитать',tone:'unv'}};
+function toUSD(n,cur,settings){if(!num(n))return null;if(!cur||cur==='USD')return n;const r=(settings.rates||{})[cur];return num(r)&&r>0?n/r:null;}
+function bestCover(u,key){const ss=activeSch(u);if(!ss.length)return 'unknown';let best='no',r=-1;for(const s of ss){const v=(s.covers||{})[key]||'unknown';if(COVER_RANK[v]>r){r=COVER_RANK[v];best=v;}}return best;}
+function isFullRide(s){const c=s.covers||{};return c.tuition==='yes'&&c.housing==='yes'&&c.food==='yes';}
+function funding(u){const ss=activeSch(u);if(ss.some(isFullRide))return 'fullride';if(ss.some(s=>s.type==='need'))return 'need';if(ss.length)return 'partial';if(u.noAid)return 'none';return 'unknown';}
+function nextDeadline(u){const now=Date.now();let best=null;for(const d of (u.deadlines||[])){if(d.done)continue;const i=deadlineInstant(d);if(i!=null&&i>=now&&(!best||i<best.inst))best={...d,inst:i};}return best;}
+function allDeadlines(unis){const out=[];for(const u of unis){if(u.status==='dropped'||u.status==='rejected')continue;for(const d of (u.deadlines||[])){const inst=deadlineInstant(d);if(inst!=null)out.push({...d,uni:u,inst});}}return out.sort((a,b)=>a.inst-b.inst);}
+function unverified(u){
+  const out=[];const c=u.costs||{};
+  if(!isVerified(c.published))out.push('опубликованная стоимость');
+  for(const d of u.deadlines||[])if(!d.done&&!isVerified(d))out.push('дедлайн «'+d.label+'»');
+  for(const s of u.scholarships||[])if(!isVerified(s))out.push('стипендия «'+s.name+'»');
+  return out;
+}
+function urgentTasks(tasks){
+  return tasks.filter(t=>!t.done&&((t.due&&daysUntil(t.due)<=7)||t.priority==='high'))
+    .sort((a,b)=>(a.due?daysUntil(a.due):999)-(b.due?daysUntil(b.due):999)||(a.priority==='high'?-1:1));
+}
+function docProgress(u){const d=u.documents||[];return {n:d.length,ok:d.filter(x=>x.status==='ready'||x.status==='sent').length};}
+function countryKey(c){return (c||'').trim().toLowerCase();}
+function byCountry(unis){
+  const m=new Map();
+  for(const u of unis){const k=countryKey(u.country)||'—';if(!m.has(k))m.set(k,{key:k,name:(u.country||'').trim()||'Страна не указана',list:[]});m.get(k).list.push(u);}
+  return [...m.values()].sort((a,b)=>a.key==='—'?1:b.key==='—'?-1:a.name.localeCompare(b.name,'ru'));
+}
+function sortUnis(list,sort,S){
+  const key={
+    deadline:u=>{const n=nextDeadline(u);return n?n.inst:9e15;},
+    cost:u=>{const f=finance(u);const v=toUSD(f.mine,f.cur,S);return v==null?9e15:v;},
+    status:u=>STATUSES.findIndex(s=>s.id===u.status),
+    tier:u=>({reach:0,target:1,safety:2})[u.tier]??3,
+  }[sort];
+  const k=new Map(list.map(u=>[u.id,key?key(u):0]));
+  return [...list].sort((a,b)=>(k.get(a.id)-k.get(b.id))||a.name.localeCompare(b.name,'ru'));
+}
+function blobUrl(assetId){return '/_blob/'+assetId;}
+function absBlobUrl(assetId){try{return new URL(blobUrl(assetId),location.href).href;}catch(e){return '';}}
+function fmtSize(b){if(!num(b))return '';return b<1024*1024?Math.max(1,Math.round(b/1024))+' КБ':(b/1048576).toFixed(1).replace('.',',')+' МБ';}
+
+/* ----- доступ к возможностям артефакта (файлы, Claude) ----- */
+const capCache={};
+function useCap(name){
+  // значения оборачиваются в функции: sample — сама функция, и Preact иначе вызвал бы её как обновитель
+  const [v,setV]=useState(()=>capCache[name]);
+  useEffect(()=>{
+    if(capCache[name]!==undefined){setV(()=>capCache[name]);return;}
+    const c=window.claude;
+    if(!c||typeof c.use!=='function'){capCache[name]=null;setV(()=>null);return;}
+    let alive=true;
+    c.use(name).then(x=>{capCache[name]=x||null;if(alive)setV(()=>x||null);},()=>{capCache[name]=null;if(alive)setV(()=>null);});
+    return ()=>{alive=false;};
+  },[]);
+  return v;
+}
+
+/* ----- чтение PDF (pdf.js загружается только при первом использовании) ----- */
+let pdfjsP=null;
+function loadScript(src){return new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=()=>rej(new Error('Не удалось загрузить модуль чтения PDF. Проверьте интернет.'));document.head.appendChild(s);});}
+function getPdfjs(){
+  if(!pdfjsP)pdfjsP=(async()=>{await loadScript(PDFJS+'/pdf.min.js');await loadScript(PDFJS+'/pdf.worker.min.js');const lib=window.pdfjsLib;if(!lib)throw new Error('Модуль чтения PDF не загрузился');lib.GlobalWorkerOptions.workerSrc=PDFJS+'/pdf.worker.min.js';return lib;})().catch(e=>{pdfjsP=null;throw e;});
+  return pdfjsP;
+}
+async function pdfToText(blob,onProgress){
+  const lib=await getPdfjs();
+  const doc=await lib.getDocument({data:new Uint8Array(await blob.arrayBuffer()),isEvalSupported:false,disableFontFace:true}).promise;
+  const n=Math.min(doc.numPages,60);let out='';
+  for(let i=1;i<=n;i++){
+    const p=await doc.getPage(i);const tc=await p.getTextContent();
+    out+='\n\n[стр. '+i+']\n'+tc.items.map(it=>(it.str||'')+(it.hasEOL?'\n':' ')).join('');
+    onProgress&&onProgress(i,n);
+  }
+  return {text:out,doc,pages:doc.numPages};
+}
+async function pdfPagesToImages(doc,max){
+  const out=[];
+  for(let i=1;i<=Math.min(doc.numPages,max);i++){
+    const p=await doc.getPage(i);const vp=p.getViewport({scale:1.5});
+    const c=document.createElement('canvas');c.width=Math.ceil(vp.width);c.height=Math.ceil(vp.height);
+    await p.render({canvasContext:c.getContext('2d'),viewport:vp}).promise;
+    out.push(await new Promise(r=>c.toBlob(r,'image/jpeg',0.85)));
+  }
+  return out;
+}
+
+/* ----- разбор документа через Claude ----- */
+function buildPrompt(content,sourceName,uni,hasImages){
+  return 'Ты помогаешь абитуриенту из Кыргызстана: бакалавриат, набор на осень 2027 (заявки подаются в 2026–2027 годах). '
+  +'Ниже '+(hasImages?'изображения страниц документа':'текст документа')+' «'+sourceName+'»'+(uni?' о вузе «'+uni.name+'»':'')+'. Извлеки из него факты для дашборда поступления.\n\n'
+  +'Строгие правила:\n'
+  +'- Бери ТОЛЬКО то, что прямо написано в документе. Ничего не додумывай и не дополняй своими знаниями. Нет данных — null, пустая строка или пустой массив.\n'
+  +'- Суммы — числа без пробелов и знаков валюты, за один учебный год. Если сумма дана за семестр или месяц, пересчитай в год только когда в документе явно сказано число семестров или месяцев, и опиши пересчёт в note; иначе не заполняй сумму, а опиши её словами в conditions или note.\n'
+  +'- Даты — YYYY-MM-DD. Если год не указан, но ясно, что речь о текущем цикле поступления на осень 2027, поставь этот год и yearAssumed: true. Если неясно — не добавляй дедлайн, а напиши об этом в warnings.\n'
+  +'- time — HH:MM в 24-часовом формате и tz — идентификатор IANA (EST/ET = America/New_York), только если они указаны.\n'
+  +'- Текстовые поля пиши по-русски и кратко. Названия вузов, программ и стипендий оставляй как в оригинале. country — по-русски.\n'
+  +'- quote — короткая дословная цитата (до 15 слов), подтверждающая дату.\n'
+  +'- covers: "yes" — документ прямо говорит, что статья покрывается полностью; "partial" — частично; "no" — прямо сказано, что не покрывается; "unknown" — не сказано.\n'
+  +'- officialUrl — адрес официальной страницы, только если он прямо указан в документе как источник этих сведений.\n'
+  +'- Всё сомнительное или противоречивое опиши в warnings.\n\n'
+  +'Ответь ТОЛЬКО одним JSON-объектом этой формы (значения ниже — образец формы, а не данные):\n'
+  +'{"name":null,"city":null,"country":null,"program":null,"degree":null,"website":null,"portal":null,"officialUrl":null,"currency":null,'
+  +'"deadlines":[{"label":"Regular Decision","type":"application","date":"2027-01-05","yearAssumed":false,"time":"23:59","tz":"America/New_York","note":"","quote":""}],'
+  +'"costs":{"year":"2026-27","items":{"tuition":null,"fees":null,"housing":null,"food":null,"insurance":null,"books":null,"personal":null,"travel":null},"total":null,"note":""},'
+  +'"scholarships":[{"name":"","type":"need","amount":null,"covers":{"tuition":"unknown","housing":"unknown","food":"unknown","insurance":"unknown","travel":"unknown"},"stipend":"","conditions":"","renewable":"unknown"}],'
+  +'"documents":["Транскрипт"],'
+  +'"requirements":{"platform":"","tests":"","english":"","gpa":"","essays":"","recommendations":"","interview":"","appFee":"","feeWaiver":"","other":""},'
+  +'"warnings":[]}\n'
+  +'deadlines[].type: application | scholarship | finaid | documents | test | interview | decision | other. scholarships[].type: need | merit | government | university | external. currency — код ISO 4217 валюты цен или null.\n\n'
+  +'ДОКУМЕНТ:\n'+(content||'(см. изображения)');
+}
+function normalizeExtract(d){
+  d=d&&typeof d==='object'&&!Array.isArray(d)?d:{};
+  const s=v=>typeof v==='string'?v.trim():(typeof v==='number'?String(v):'');
+  const url=v=>safeUrl(s(v))||'';
+  const date=v=>/^\d{4}-\d{2}-\d{2}$/.test(s(v))?s(v):'';
+  const time=v=>/^\d{1,2}:\d{2}$/.test(s(v))?s(v).padStart(5,'0'):'';
+  const tz=v=>{const t=s(v);if(!t)return '';try{new Intl.DateTimeFormat('en',{timeZone:t});return t;}catch(e){return '';}};
+  const cv=v=>['yes','partial','no','unknown'].includes(v)?v:'unknown';
+  const arr=v=>Array.isArray(v)?v:[];
+  const c=d.costs&&typeof d.costs==='object'?d.costs:{};const ci=c.items&&typeof c.items==='object'?c.items:{};
+  const items={};for(const [k] of COST_ITEMS){const n=toNum(ci[k]);items[k]=n!=null&&n>=0?n:null;}
+  const cur=s(d.currency).toUpperCase();
+  const seen=new Set();
+  const r=d.requirements&&typeof d.requirements==='object'?d.requirements:{};
+  return {
+    basic:{name:s(d.name),city:s(d.city),country:s(d.country),program:s(d.program),degree:s(d.degree),website:url(d.website),portal:url(d.portal)},
+    officialUrl:url(d.officialUrl),currency:CURRENCIES.includes(cur)?cur:'',
+    deadlines:arr(d.deadlines).filter(x=>x&&typeof x==='object').map(x=>{const t=time(x.time);return {label:s(x.label)||'Дедлайн',type:DL_TYPES[x.type]?x.type:'other',date:date(x.date),yearAssumed:!!x.yearAssumed,time:t,tz:t?tz(x.tz):'',note:s(x.note),quote:s(x.quote)};}).filter(x=>x.date),
+    costs:{year:s(c.year),items,total:toNum(c.total),note:s(c.note)},
+    scholarships:arr(d.scholarships).filter(x=>x&&typeof x==='object'&&s(x.name)).map(x=>{const cov=x.covers&&typeof x.covers==='object'?x.covers:{};return {name:s(x.name),type:SCH_TYPES[x.type]?x.type:'university',amount:toNum(x.amount),covers:Object.fromEntries(COVER_KEYS.map(([k])=>[k,cv(cov[k])])),stipend:s(x.stipend),conditions:s(x.conditions),renewable:['yes','no'].includes(x.renewable)?x.renewable:'unknown'};}),
+    documents:arr(d.documents).map(s).filter(x=>x&&!seen.has(x.toLowerCase())&&seen.add(x.toLowerCase())),
+    requirements:Object.fromEntries(REQ_FIELDS.map(([k])=>[k,s(r[k])])),
+    warnings:arr(d.warnings).map(s).filter(Boolean),
+  };
+}
+function hasCosts(c){return c&&(c.total!=null||COST_ITEMS.some(([k])=>c.items[k]!=null));}
+function hasReq(r){return REQ_FIELDS.some(([k])=>r[k]);}
+function applyImport({res,sel,basic,uni,src,verified,att,origin}){
+  const checkedAt=verified&&src?todayISO():'';
+  const fact={source:src||'',checkedAt,origin};
+  const u=uni?clone(Store.data.unis[uni.id]||uni):{id:uid('u'),status:'research',tier:'',notes:'',deadlines:[],scholarships:[],documents:[],files:[],costs:{currency:'USD'},createdAt:todayISO()};
+  u.deadlines=u.deadlines||[];u.scholarships=u.scholarships||[];u.documents=u.documents||[];u.files=u.files||[];u.costs=u.costs||{currency:'USD'};
+  if(sel.basic)for(const k of Object.keys(basic)){const v=(basic[k]||'').trim();if(v&&(!uni||!u[k]))u[k]=v;}
+  if(res.currency&&(!uni||(!u.costs.published&&!u.costs.estimate&&!u.costs.offer)))u.costs.currency=res.currency;
+  res.deadlines.forEach((d,i)=>{if(!sel.dl[i])return;
+    u.deadlines.push({id:uid('dl'),label:d.label,type:d.type,date:d.date,time:d.time,tz:d.tz,done:false,
+      note:[d.yearAssumed?'Год в документе не указан — проставлен по циклу поступления.':'',d.note,d.quote?'Цитата: «'+d.quote+'»':''].filter(Boolean).join(' '),
+      source:fact.source,checkedAt:d.yearAssumed?'':checkedAt,origin});});
+  if(sel.costs&&hasCosts(res.costs))u.costs.published={year:res.costs.year,items:res.costs.items,total:res.costs.total,note:res.costs.note,...fact};
+  res.scholarships.forEach((s,i)=>{if(sel.sch[i])u.scholarships.push({id:uid('s'),status:'planned',include:true,...s,...fact});});
+  const have=new Set(u.documents.map(x=>x.name.toLowerCase()));
+  res.documents.forEach((name,i)=>{if(sel.docs[i]&&!have.has(name.toLowerCase()))u.documents.push({id:uid('d'),name,status:'todo'});});
+  if(sel.req&&hasReq(res.requirements)){const r={...(u.requirements||{})};for(const [k] of REQ_FIELDS)if(res.requirements[k])r[k]=res.requirements[k];u.requirements={...r,...fact};}
+  if(att&&att.isNew)u.files.push({id:uid('f'),assetId:att.assetId,name:att.name,size:att.size,type:att.type,kind:'brochure',addedAt:todayISO()});
+  if(!u.name)u.name=basic.name||'Новый вуз';
+  return A.saveUni(u).then(()=>u.id,()=>u.id);
+}
+function sampleErr(e){
+  const m={not_granted:'Вы не разрешили дашборду обращаться к Claude. Обновите страницу и разрешите доступ при следующей попытке.',
+    sampling_disabled:'Claude недоступен для этого аккаунта.',rate_limited:'Слишком много запросов или достигнут лимит Claude. Попробуйте позже.',
+    session_expired:'Сессия истекла — войдите в claude.ai заново.',invalid_json:'Claude ответил не в том формате. Попробуйте ещё раз.',
+    refused:'Claude отказался обрабатывать этот документ. Попробуйте вставить нужную часть текстом.',prompt_too_large:'Документ слишком большой. Вставьте во вкладку «Текст» только нужную часть.',
+    image_rejected:'Изображение не подошло. Попробуйте другой файл.',images_unavailable:'Здесь нельзя отправлять изображения. Скопируйте текст во вкладку «Текст».',
+    empty_completion:'Claude ничего не ответил. Попробуйте ещё раз.',upstream_error:'Сбой связи с Claude. Попробуйте ещё раз.'};
+  if(e&&e.code&&m[e.code])return m[e.code];
+  return (e&&e.message)||'Не удалось распознать документ.';
+}
+function uploadErr(e,name){
+  const m={too_large:'больше 20 МБ',unsupported_type:'такой тип не поддерживается (PDF, PNG, JPG, WebP)',quota_or_state:'место для файлов закончилось',rate_limited:'слишком часто, попробуйте позже',upstream_auth:'войдите в claude.ai заново'};
+  return 'Файл «'+name+'» не загружен: '+((e&&m[e.code])||'ошибка хранилища');
+}
+
+/* =========================================================
+   Хранилище: общее (db артефакта) или локальное
+   ========================================================= */
+const LS_KEY='admissions-dashboard-v1';
+const Store={
+  data:{unis:{},tasks:{},settings:{...DEFAULT_SETTINGS}},
+  mode:'loading', ready:false, note:'', db:null, subs:new Set(), q:{},
+  emit(){this.subs.forEach(f=>f());},
+  persistLocal(){if(this.mode==='local')lsSet(LS_KEY,JSON.stringify(this.data));},
+  async put(coll,id,doc){
+    const body=clone(doc);
+    if(coll==='settings'){this.data={...this.data,settings:body};}
+    else{this.data={...this.data,[coll]:{...this.data[coll],[id]:body}};}
+    this.emit();
+    if(this.mode==='db'){
+      const ref=coll==='settings'?this.db.doc('meta/settings'):this.db.collection(coll).doc(id);
+      return this.enqueue(coll+'/'+id,()=>ref.set(body)).catch(e=>{toast('Не сохранилось: '+(e&&e.message||'ошибка хранилища'));throw e;});
+    }
+    this.persistLocal();
+  },
+  async remove(coll,id){
+    const m={...this.data[coll]};delete m[id];this.data={...this.data,[coll]:m};this.emit();
+    if(this.mode==='db')return this.enqueue(coll+'/'+id,()=>this.db.collection(coll).doc(id).delete()).catch(e=>toast('Не удалось удалить: '+(e&&e.message||'ошибка')));
+    this.persistLocal();
+  },
+  enqueue(key,fn){const p=(this.q[key]||Promise.resolve()).then(fn,fn);this.q[key]=p.catch(()=>{});return p;},
+  useLocal(note){
+    this.mode='local';this.note=note||'';
+    try{const raw=lsGet(LS_KEY);if(raw){const d=JSON.parse(raw);this.data={unis:d.unis||{},tasks:d.tasks||{},settings:{...DEFAULT_SETTINGS,...(d.settings||{})}};}}catch(e){}
+    this.ready=true;this.emit();
+  },
+  async init(){
+    const c=window.claude;
+    if(!c||typeof c.use!=='function'){this.useLocal('');return;}
+    let db=null;try{db=await c.use('db');}catch(e){}
+    if(!db){this.useLocal('Общее хранилище недоступно в этом окне — изменения сохраняются только в этом браузере.');return;}
+    this.db=db;this.mode='db';this.emit();
+    const got={unis:false,tasks:false,settings:false};
+    const timer=setTimeout(()=>{this.note='Не удаётся связаться с хранилищем. Проверьте интернет — данные появятся сами, перезагружать не нужно.';this.ready=true;this.emit();},10000);
+    const mark=(k,snap)=>{if(!snap.metadata.fromCache)got[k]=true;if(got.unis&&got.tasks&&got.settings){clearTimeout(timer);if(this.note.startsWith('Не удаётся'))this.note='';}if(k==='unis')this.ready=true;this.emit();};
+    const onErr=e=>{clearTimeout(timer);this.ready=true;this.note='Хранилище недоступно ('+(e&&e.code||'ошибка')+'). Обновите страницу позже.';this.emit();};
+    db.collection('unis').onSnapshot(s=>{const m={};s.docs.forEach(d=>{m[d.id]={...d.data(),id:d.id};});this.data={...this.data,unis:m};mark('unis',s);},onErr);
+    db.collection('tasks').onSnapshot(s=>{const m={};s.docs.forEach(d=>{m[d.id]={...d.data(),id:d.id};});this.data={...this.data,tasks:m};mark('tasks',s);},onErr);
+    db.doc('meta/settings').onSnapshot(s=>{this.data={...this.data,settings:{...DEFAULT_SETTINGS,...(s.exists?s.data():{})}};mark('settings',s);},onErr);
+  },
+};
+const A={
+  saveUni:u=>Store.put('unis',u.id,u),
+  patchUni:(id,patch)=>Store.put('unis',id,{...Store.data.unis[id],...patch}),
+  async deleteUni(id){for(const t of Object.values(Store.data.tasks))if(t.uniId===id)await Store.remove('tasks',t.id);return Store.remove('unis',id);},
+  saveTask:t=>Store.put('tasks',t.id,t),
+  toggleTask:t=>Store.put('tasks',t.id,{...t,done:!t.done,doneAt:!t.done?todayISO():null}),
+  deleteTask:id=>Store.remove('tasks',id),
+  saveSettings:s=>Store.put('settings','settings',s),
+};
+
+/* =========================================================
+   Иконки
+   ========================================================= */
+const ICONS={
+  home:'M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z',
+  uni:'M3 9.5 12 4l9 5.5-9 5.5zM7 12v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V12M21 9.5V15',
+  tasks:'M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2',
+  gear:'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z',
+  plus:'M12 5v14M5 12h14', search:'M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM20 20l-4-4', x:'M6 6l12 12M18 6 6 18',
+  back:'M15 18l-6-6 6-6', edit:'M4 20h4L19 9l-4-4L4 16zM14 6l4 4', trash:'M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3',
+  ext:'M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5',
+  cal:'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4', wallet:'M3 7h15a3 3 0 0 1 3 3v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 7V6a2 2 0 0 1 2-2h11M16 14h2',
+  filter:'M4 5h16l-6 8v6l-4-2v-4z', check:'M5 12l5 5 9-10', alert:'M12 8v5M12 17h.01M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z',
+  doc:'M7 3h7l5 5v13H7zM14 3v5h5', award:'M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14 7 22l5-3 5 3-1.5-8',
+  link:'M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1',
+  chev:'M9 6l6 6-6 6', globe:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z',
+  upload:'M12 16V4M7 9l5-5 5 5M5 20h14', spark:'M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z',
+  clip:'M21 11.5l-8.5 8.5a5 5 0 0 1-7-7L14 4.5a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4L15.5 7.6',
+};
+const Icon=({n,s=18})=>html`<svg width=${s} height=${s} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d=${ICONS[n]}/></svg>`;
+
+/* =========================================================
+   Маленькие компоненты
+   ========================================================= */
+function SourceTag({f,label}){
+  if(!isVerified(f)){
+    const txt='Не проверено'+(f&&f.origin?' · из '+(f.origin==='pdf'?'PDF':'текста')+', сверьте':'');
+    const cand=f&&f.source&&safeUrl(f.source);
+    return cand?html`<a class="src unv" href=${cand} target="_blank" rel="noopener noreferrer" title="Источник ещё не сверен — откройте и проверьте">${txt} · ${hostOf(cand)} ↗</a>`
+      :html`<span class="src unv" title="Нет ссылки на источник или даты проверки">${txt}</span>`;
+  }
+  const u=safeUrl(f.source);const age=daysSince(f.checkedAt);const stale=age>45;
+  const txt=(label?label+' · ':'')+(stale?'проверено '+age+' '+plural(age,'день','дня','дней')+' назад':'проверено '+fmtDate(f.checkedAt,{day:'numeric',month:'short'}));
+  const inner=html`${stale?html`<${Icon} n="alert" s=${13}/>`:html`<${Icon} n="check" s=${13}/>`} ${txt} · ${u?hostOf(u):'источник'}`;
+  return u?html`<a class=${'src '+(stale?'stale':'ok')} href=${u} target="_blank" rel="noopener noreferrer" title=${f.source}>${inner}</a>`:html`<span class=${'src '+(stale?'stale':'ok')}>${inner}</span>`;
+}
+const StatusPill=({s})=>{const x=ST[s]||ST.research;return html`<span class=${'pill t-'+x.tone}>${x.label}</span>`;};
+const FundingTag=({u})=>{const f=FUNDING[funding(u)];return html`<span class=${'tag t-'+f.tone}>${f.label}</span>`;};
+function Covers({u,keys}){
+  const ks=keys||['tuition','housing','food'];
+  if(!activeSch(u).length)return html`<div class="covers"><span class="cv cv-unknown">Стипендии не добавлены — покрытие не проверено</span></div>`;
+  return html`<div class="covers">${ks.map(k=>{const v=bestCover(u,k);const lbl=COVER_KEYS.find(x=>x[0]===k)[1];
+    return html`<span class=${'cv cv-'+v} title=${lbl+': '+COVER_LV[v]}>${v==='yes'?'✓':v==='no'?'✕':v==='partial'?'◐':'?'} ${lbl}${v==='unknown'?' — не проверено':''}</span>`;})}</div>`;
+}
+function ConfirmBtn({onConfirm,label='Удалить',armedLabel='Точно удалить?',small}){
+  const [armed,setArmed]=useState(false);
+  useEffect(()=>{if(!armed)return;const t=setTimeout(()=>setArmed(false),3500);return ()=>clearTimeout(t);},[armed]);
+  return html`<button type="button" class=${'btn danger'+(small?' sm':'')+(armed?' armed':'')} onClick=${()=>armed?onConfirm():setArmed(true)}>${armed?armedLabel:label}</button>`;
+}
+function Money({n,cur,settings,S,showUsd=true}){
+  settings=settings||S||Store.data.settings;
+  if(!num(n))return html`<span class="faint">—</span>`;
+  const usd=cur!=='USD'?toUSD(n,cur,settings):null;
+  return html`<span>${fmtMoney(n,cur)}${showUsd&&usd!=null?html` <span class="faint small">≈ ${fmtMoney(usd,'USD')}</span>`:''}</span>`;
+}
+
+/* =========================================================
+   Навигация
+   ========================================================= */
+function useRoute(){
+  const get=()=>decodeURIComponent(location.hash.slice(1))||'home';
+  const [r,setR]=useState(get);
+  useEffect(()=>{const f=()=>{setR(get());window.scrollTo(0,0);};window.addEventListener('hashchange',f);return ()=>window.removeEventListener('hashchange',f);},[]);
+  return r;
+}
+const go=r=>{location.hash=r;};
+function Sidebar({route,data,ui}){
+  const tasks=Object.values(data.tasks);const urg=urgentTasks(tasks).length;
+  const on=r=>route===r||(r==='unis'&&route.startsWith('uni-'))?'on':'';
+  const ok=Store.mode==='db'&&!Store.note;
+  return html`<aside class="side">
+    <div class="brand"><div class="brand-mark">27</div><div><b>Поступление</b><span>Осень 2027 · из Бишкека</span></div></div>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#home" class=${on('home')}><${Icon} n="home"/>Главная</a>
+      <a href="#unis" class=${on('unis')}><${Icon} n="uni"/>Вузы<span class="count">${Object.keys(data.unis).length}</span></a>
+      <a href="#tasks" class=${on('tasks')}><${Icon} n="tasks"/>Задачи${urg?html`<span class="count hot">${urg}</span>`:''}</a>
+      <a href="#config" class=${on('config')}><${Icon} n="gear"/>Настройки и данные</a>
+    </nav>
+    <div class="side-actions">
+      <button class="btn primary" onClick=${()=>ui.open({type:'uni'})}><${Icon} n="plus" s=${16}/>Добавить вуз</button>
+      <button class="btn" onClick=${()=>ui.open({type:'import'})}><${Icon} n="spark" s=${16}/>Из PDF или текста</button>
+      <button class="btn" onClick=${()=>ui.open({type:'task'})}><${Icon} n="plus" s=${16}/>Задача</button>
+    </div>
+    <div class="side-foot"><span class=${'dot '+(ok?'ok':'warn')}></span><span>${Store.mode==='db'?(ok?'Синхронизируется между устройствами':'Нет связи с хранилищем'):Store.mode==='loading'?'Подключаюсь…':'Хранится только в этом браузере'}</span></div>
+  </aside>`;
+}
+function BottomNav({route,data,ui}){
+  const urg=urgentTasks(Object.values(data.tasks)).length;
+  const on=r=>route===r||(r==='unis'&&route.startsWith('uni-'))?'on':'';
+  return html`<nav class="bottom" aria-label="Разделы">
+    <a href="#home" class=${on('home')}><${Icon} n="home" s=${22}/>Главная</a>
+    <a href="#unis" class=${on('unis')}><${Icon} n="uni" s=${22}/>Вузы</a>
+    <button onClick=${()=>ui.open({type:'add'})} aria-label="Добавить"><span class="plus"><${Icon} n="plus" s=${22}/></span></button>
+    <a href="#tasks" class=${on('tasks')}><${Icon} n="tasks" s=${22}/>Задачи${urg?html`<span class="badge-n">${urg}</span>`:''}</a>
+    <a href="#config" class=${on('config')}><${Icon} n="gear" s=${22}/>Ещё</a>
+  </nav>`;
+}
+
+/* =========================================================
+   Общие строки списков
+   ========================================================= */
+function DeadlineRow({d,showUni=true}){
+  const cd=countdown(d.inst);const dt=parseISO(d.date);
+  const mon=new Intl.DateTimeFormat('ru-RU',{month:'short'}).format(dt).replace('.','');
+  return html`<a class=${'dl-row'+(d.done?' done-row':'')} href=${'#uni-'+d.uni.id}>
+    <div class="dl-date"><b>${dt.getDate()}</b><span>${mon}</span></div>
+    <div class="dl-body">
+      <div class="dl-title">${showUni?d.uni.name:d.label}</div>
+      <div class="dl-sub">${showUni?d.label+' · ':''}${DL_TYPES[d.type]||'Дедлайн'}</div>
+      <div class="dl-meta">${deadlineLine(d)}</div>
+    </div>
+    <div class="dl-right"><span class=${'tag t-'+cd.tone}>${cd.txt}</span>${isVerified(d)?'':html`<span class="src unv">Не проверено</span>`}</div>
+  </a>`;
+}
+function TaskRow({t,data,ui,showUni=true}){
+  const u=t.uniId&&data.unis[t.uniId];
+  let due=null;
+  if(t.due){const n=daysUntil(t.due);const tone=t.done?'muted':n<0?'crit':n<=2?'crit':n<=7?'warn':'neutral';
+    due=html`<span class=${'tag t-'+tone}>${n<0?'просрочено на '+(-n)+' дн.':n===0?'сегодня':n===1?'завтра':fmtDate(t.due,{day:'numeric',month:'short'})}</span>`;}
+  return html`<div class=${'task'+(t.done?' done-row':'')}>
+    <input type="checkbox" class="chk" checked=${!!t.done} onChange=${()=>{A.toggleTask(t);if(!t.done)toast('Готово: '+t.title);}} aria-label=${'Отметить: '+t.title}/>
+    <div><div class="t-title" onClick=${()=>ui.open({type:'task',task:t})}>${t.title}</div>
+      <div class="t-meta">${t.priority==='high'&&!t.done?html`<span class="prio">Важно</span>`:''}${showUni&&u?html`<a href=${'#uni-'+u.id}>${u.name}</a>`:''}${t.note?html`<span>${t.note.length>70?t.note.slice(0,70)+'…':t.note}</span>`:''}</div></div>
+    <div>${due}</div>
+  </div>`;
+}
+
+/* =========================================================
+   Главная
+   ========================================================= */
+function Home({data,ui}){
+  const unis=Object.values(data.unis);const tasks=Object.values(data.tasks);const S=data.settings;
+  const now=Date.now();
+  const dls=allDeadlines(unis).filter(d=>!d.done);
+  const upcoming=dls.filter(d=>d.inst>=now);
+  const missed=dls.filter(d=>d.inst<now&&now-d.inst<21*864e5);
+  const next=upcoming[0];
+  const urgent=urgentTasks(tasks);
+  const unvCount=unis.filter(u=>u.status!=='dropped').reduce((a,u)=>a+unverified(u).length,0);
+  const submitted=unis.filter(u=>['submitted','interview','admitted','waitlist','committed','rejected'].includes(u.status)).length;
+  const examples=unis.filter(u=>u.example).length;
+
+  if(!unis.length)return html`<div class="wrap">
+    <header class="page-head"><div><div class="eyebrow">Осень 2027</div><h1>Мой план поступления</h1></div></header>
+    <div class="card empty" style="padding:40px 22px">
+      <${Icon} n="uni" s=${36}/>
+      <h2>Здесь появятся ваши вузы, дедлайны и деньги</h2>
+      <p class="muted" style="max-width:52ch">Добавьте первый вуз: название, страну и ссылку на официальную страницу. Цены, дедлайны и условия стипендий вносите только с источником — без него значение помечается «Не проверено».</p>
+      <div class="row" style="justify-content:center"><button class="btn primary" onClick=${()=>ui.open({type:'uni'})}><${Icon} n="plus" s=${16}/>Добавить вуз</button><button class="btn" onClick=${()=>ui.open({type:'import'})}><${Icon} n="spark" s=${16}/>Из PDF или текста</button><a class="btn ghost" href="#config">Импорт резервной копии</a></div>
+      ${Store.mode==='local'?html`<${SeedButton}/>`:''}
+    </div></div>`;
+
+  const cd=next&&countdown(next.inst);
+  return html`<div class="wrap">
+    <header class="page-head">
+      <div><div class="eyebrow">${new Intl.DateTimeFormat('ru-RU',{weekday:'long',day:'numeric',month:'long'}).format(new Date())} · набор осень 2027</div><h1>Мой план поступления</h1></div>
+      <div class="row head-actions"><button class="btn" onClick=${()=>ui.open({type:'task'})}><${Icon} n="plus" s=${16}/>Задача</button><button class="btn primary" onClick=${()=>ui.open({type:'uni'})}><${Icon} n="plus" s=${16}/>Вуз</button></div>
+    </header>
+
+    ${examples?html`<div class="notice info"><${Icon} n="alert"/><div class="notice-body"><b>${examples} ${plural(examples,'запись — пример','записи — примеры','записей — примеры')}</b><span>Это не ваш выбор вузов. Замените их своими или удалите в настройках.</span></div><a class="btn sm" href="#config">Настроить</a></div>`:''}
+
+    <section class="card hero">
+      <div class="hero-main">
+        <div class="eyebrow">Ближайший дедлайн</div>
+        ${next?html`
+          <div class=${'dday '+cd.tone}><span class="n">${cd.n}</span><span class="u">${cd.unit}</span></div>
+          <a class="hero-title" href=${'#uni-'+next.uni.id} style="color:inherit">${next.uni.name}</a>
+          <div class="muted">${next.label} · ${DL_TYPES[next.type]||'Дедлайн'}</div>
+          <div class="small faint">${deadlineLine(next)}</div>
+          <div><${SourceTag} f=${next}/></div>`
+        :html`<p class="muted" style="margin-top:6px">Впереди нет дедлайнов. Добавьте их на странице вуза — с источником и датой проверки.</p>`}
+      </div>
+      <div class="hero-stats">
+        <a class="stat" href="#unis"><b>${unis.filter(u=>u.status!=='dropped').length}</b><span>вузов в работе</span></a>
+        <a class="stat" href="#unis"><b>${submitted}</b><span>${plural(submitted,'заявка подана','заявки поданы','заявок подано')}</span></a>
+        <a class=${'stat'+(urgent.length?' hot':'')} href="#tasks"><b>${urgent.length}</b><span>срочных задач</span></a>
+        <a class=${'stat'+(unvCount?' hot':'')} href="#unis"><b>${unvCount}</b><span>${plural(unvCount,'факт не проверен','факта не проверены','фактов не проверено')}</span></a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sec-head"><h2>Статусы заявок</h2></div>
+      <div class="pipe">${PIPE.map(g=>{const list=unis.filter(u=>g.st.includes(u.status));const pct=unis.length?list.length/unis.length*100:0;
+        return html`<a href="#unis" onClick=${()=>setUnisFilter({status:g.id})}><span class="lbl">${g.label}</span><b>${list.length}</b><div class="bar"><i class="grow" style=${{width:pct+'%'}}></i></div><span class="names">${list.map(u=>u.name).join(', ')||'—'}</span></a>`;})}</div>
+    </section>
+
+    <section class="section">
+      <div class="sec-head"><h2>По странам</h2><a class="small" href="#unis" onClick=${()=>setUnisFilter({group:'country'})}>Все вузы по странам</a></div>
+      <div class="ctiles">${byCountry(unis.filter(u=>u.status!=='dropped')).map(g=>{
+        let nd=null;for(const u of g.list){const n=nextDeadline(u);if(n&&(!nd||n.inst<nd.inst))nd=n;}
+        const sent=g.list.filter(u=>SENT_ST.includes(u.status)).length;const fr=g.list.filter(u=>funding(u)==='fullride').length;
+        return html`<a class="ctile" href="#unis" onClick=${()=>setUnisFilter({country:g.name,group:'country'})}>
+          <b>${g.name}</b>
+          <span class="small muted">${g.list.length} ${plural(g.list.length,'вуз','вуза','вузов')}${sent?' · подано '+sent:''}</span>
+          <div class="mini">${fr?html`<span class="tag t-gold">full ride: ${fr}</span>`:''}${nd?html`<span class=${'tag t-'+countdown(nd.inst).tone}>${fmtDate(nd.date,{day:'numeric',month:'short'})} · ${countdown(nd.inst).txt}</span>`:html`<span class="tag t-unv">дедлайнов нет</span>`}</div>
+        </a>`;})}</div>
+    </section>
+
+    <div class="grid2">
+      <section class="card panel">
+        <div class="panel-head"><h2>Ближайшие дедлайны</h2><span class="faint small">время — по Бишкеку</span></div>
+        ${missed.length?html`<div class="notice" style="margin:0 18px 8px"><${Icon} n="alert"/><div class="notice-body"><b>Прошло, но не отмечено: ${missed.length}</b><span>${missed.map(d=>d.uni.name+' — '+d.label).join('; ')}. Отметьте выполненным на странице вуза или исправьте дату.</span></div></div>`:''}
+        <div class="list">${upcoming.slice(0,6).map(d=>html`<${DeadlineRow} key=${d.uni.id+d.id} d=${d}/>`)}</div>
+        ${!upcoming.length?html`<div class="empty small">Нет будущих дедлайнов</div>`:''}
+        ${upcoming.length>6?html`<div class="panel-foot faint small">и ещё ${upcoming.length-6} — на страницах вузов</div>`:''}
+      </section>
+      <section class="card panel">
+        <div class="panel-head"><h2>Срочно сделать</h2><a class="small" href="#tasks">Все задачи</a></div>
+        <div class="list">${urgent.slice(0,7).map(t=>html`<${TaskRow} key=${t.id} t=${t} data=${data} ui=${ui}/>`)}</div>
+        ${!urgent.length?html`<div class="empty small"><span>Срочного нет. Задачи со сроком в ближайшие 7 дней и отмеченные «Важно» появятся здесь.</span></div>`:''}
+        <div class="panel-foot"><button class="btn sm ghost" onClick=${()=>ui.open({type:'task'})}><${Icon} n="plus" s=${15}/>Добавить задачу</button></div>
+      </section>
+    </div>
+
+    <${FinanceOverview} unis=${unis} S=${S}/>
+  </div>`;
+}
+
+/* Для копии на GitHub Pages: подхватывает список из data/seed-unis.json, если он лежит рядом со страницей */
+function SeedButton(){
+  const [list,setList]=useState(null);const [busy,setBusy]=useState(false);
+  useEffect(()=>{if(!/^https?:$/.test(location.protocol))return;fetch('data/seed-unis.json').then(r=>r.ok?r.json():null).then(d=>{if(Array.isArray(d)&&d.length)setList(d);}).catch(()=>{});},[]);
+  if(!list)return null;
+  const load=async()=>{setBusy(true);for(const u of list)if(u&&u.id)await Store.put('unis',u.id,u);toast('Добавлено вузов: '+list.length);};
+  return html`<button class="btn" disabled=${busy} onClick=${load}>Загрузить ${list.length} ${plural(list.length,'вуз','вуза','вузов')} из PDF-списка</button>`;
+}
+function FinanceOverview({unis,S}){
+  const rows=unis.filter(u=>u.status!=='dropped'&&u.status!=='rejected').map(u=>{const f=finance(u);
+    return {u,f,mineUSD:toUSD(f.mine,f.cur,S),baseUSD:f.base?toUSD(f.base.total,f.cur,S):null,offerCoaUSD:num((u.costs||{}).offer&&u.costs.offer.coa)?toUSD(u.costs.offer.coa,f.cur,S):null};});
+  const comparable=rows.filter(r=>r.mineUSD!=null).sort((a,b)=>a.mineUSD-b.mineUSD);
+  const rest=rows.filter(r=>r.mineUSD==null);
+  const max=Math.max(1,...comparable.map(r=>Math.max(r.baseUSD||0,r.offerCoaUSD||0,r.mineUSD||0)),num(S.budgetUSD)?S.budgetUSD:0);
+  const budget=num(S.budgetUSD)?S.budgetUSD:null;
+  const kgs=(S.rates||{}).KGS;
+  return html`<section class="card panel">
+    <div class="panel-head" style="align-items:flex-start"><div><h2>Сколько реально платить в год</h2><p class="small muted" style="margin-top:3px">Остаток = стоимость года − стипендии. У каждой строки указано, на чём основан расчёт.</p></div>
+      ${budget?html`<span class="tag t-neutral">Бюджет семьи: ${fmtMoney(budget,'USD')}/год</span>`:html`<a class="small" href="#config">Указать бюджет семьи</a>`}</div>
+    <div class="list">
+      ${comparable.map(r=>{const w=r.baseUSD?r.baseUSD/max*100:r.mineUSD/max*100;const pay=r.mineUSD/max*100;const b=BASIS[r.f.basis];
+        const over=budget!=null?r.mineUSD-budget:null;
+        return html`<a class="fin-row" href=${'#uni-'+r.u.id}>
+          <div class="fin-name"><b>${r.u.name}</b><span class=${'tag t-'+b.tone}>${b.label}</span>${r.f.basis==='prelim'&&r.f.uncounted.length?html` <span class="small faint">помощь не учтена: сумма неизвестна</span>`:''}</div>
+          <div class="fin-track" title=${'Стоимость года ≈ '+fmtMoney(r.baseUSD,'USD')+', остаток ≈ '+fmtMoney(r.mineUSD,'USD')}>
+            <div class="cov grow" style=${{width:w+'%'}}></div>
+            <div class=${'pay grow '+(r.f.basis==='offer'?'offer':'')} style=${{width:Math.max(pay,.8)+'%'}}></div>
+            ${budget?html`<div class="budget" style=${{left:'calc('+(budget/max*100)+'% - 1px)'}}></div>`:''}
+          </div>
+          <div class="fin-amt"><b>${fmtMoney(r.mineUSD,'USD')}</b><span>${r.f.cur!=='USD'?fmtMoney(r.f.mine,r.f.cur)+' · ':''}${num(kgs)?'≈ '+Math.round(r.mineUSD*kgs).toLocaleString('ru-RU')+' сом · ':''}${over!=null?(over<=0?'в бюджете':'выше бюджета на '+fmtMoney(over,'USD')):r.baseUSD?'из '+fmtMoney(r.baseUSD,'USD'):''}</span></div>
+        </a>`;})}
+      ${rest.map(r=>{const why=r.f.basis==='none'?'нет данных о стоимости':'нужен курс '+r.f.cur+' в настройках';
+        return html`<a class="fin-row" href=${r.f.basis==='none'?'#uni-'+r.u.id:'#config'}>
+          <div class="fin-name"><b>${r.u.name}</b><span class="tag t-unv">${BASIS[r.f.basis].label}</span></div>
+          <div class="small faint">${r.f.basis==='none'?'Опубликованной стоимости нет. Добавьте её или свою оценку расходов (жильё, питание, перелёты) — тогда появится остаток.':'Остаток: '+fmtMoney(r.f.mine,r.f.cur)+'. Для сравнения в долларах задайте курс.'}</div>
+          <div class="fin-amt"><b class="faint">—</b><span>${why}</span></div>
+        </a>`;})}
+    </div>
+    ${rows.length?html`<div class="legend"><span><i style="background:var(--accent)"></i>мой остаток (предварительно)</span><span><i style="background:var(--ok)"></i>остаток по предложению вуза</span><span><i style="background:repeating-linear-gradient(-45deg,var(--ok-soft) 0 3px,color-mix(in srgb,var(--ok) 25%,var(--ok-soft)) 3px 5px)"></i>покрыто стипендией</span>${budget?html`<span><i style="background:var(--ink);width:2px"></i>бюджет семьи</span>`:''}</div>`:html`<div class="empty small">Нет вузов для расчёта</div>`}
+  </section>`;
+}
+
+/* =========================================================
+   Список вузов
+   ========================================================= */
+const FKEY='admissions-filters';
+const F0={q:'',country:'all',status:'all',funding:'all',sort:'deadline',group:'country'};
+let FILTERS=(()=>{try{return {...F0,...JSON.parse(lsGet(FKEY)||'{}')};}catch(e){return {...F0};}})();
+function setUnisFilter(p){FILTERS={...F0,sort:FILTERS.sort,group:FILTERS.group,...p};lsSet(FKEY,JSON.stringify(FILTERS));}
+function matchStatus(u,f){if(f==='all')return true;const g=PIPE.find(p=>p.id===f);return g?g.st.includes(u.status):u.status===f;}
+const CKEY='admissions-collapsed';
+function Unis({data,ui}){
+  const [f,setF]=useState(FILTERS);const [open,setOpen]=useState(false);
+  const [collapsed,setCollapsed]=useState(()=>{try{return JSON.parse(lsGet(CKEY)||'{}');}catch(e){return {};}});
+  const upd=p=>{const n={...f,...p};setF(n);FILTERS=n;lsSet(FKEY,JSON.stringify(n));};
+  const toggleC=k=>{const n={...collapsed,[k]:!collapsed[k]};setCollapsed(n);lsSet(CKEY,JSON.stringify(n));};
+  const S=data.settings;
+  const unis=Object.values(data.unis);
+  const countries=byCountry(unis).filter(g=>g.key!=='—');
+  const q=f.q.trim().toLowerCase();
+  const filtered=unis.filter(u=>(!q||[u.name,u.city,u.country,u.program,u.notes].join(' ').toLowerCase().includes(q))
+    &&(f.country==='all'||countryKey(u.country)===countryKey(f.country))&&matchStatus(u,f.status)&&(f.funding==='all'||funding(u)===f.funding));
+  const active=['country','status','funding'].filter(k=>f[k]!=='all').length;
+  const chip=(key,val,label,n)=>html`<button class=${'chip'+(countryKey(f[key])===countryKey(val)?' on':'')} onClick=${()=>upd({[key]:val})} aria-pressed=${countryKey(f[key])===countryKey(val)}>${label}${n!=null?html`<span class="n">${n}</span>`:''}</button>`;
+  const groups=f.group==='country'?byCountry(filtered).map(g=>({...g,list:sortUnis(g.list,f.sort,S)})):null;
+  const flat=groups?null:sortUnis(filtered,f.sort,S);
+  const allOpen=groups&&groups.every(g=>!collapsed[g.key]);
+  return html`<div class="wrap">
+    <header class="page-head"><div><div class="eyebrow">${unis.length} ${plural(unis.length,'вуз','вуза','вузов')} · ${countries.length} ${plural(countries.length,'страна','страны','стран')}</div><h1>Вузы и программы</h1></div>
+      <div class="row"><button class="btn" onClick=${()=>ui.open({type:'import'})}><${Icon} n="spark" s=${16}/>Из PDF или текста</button><button class="btn primary" onClick=${()=>ui.open({type:'uni'})}><${Icon} n="plus" s=${16}/>Добавить вуз</button></div></header>
+    <div class="toolbar">
+      <div class="row" style="flex-wrap:nowrap">
+        <div class="search" style="flex:1;min-width:0"><${Icon} n="search" s=${17}/><input id="uni-search" class="inp" type="search" placeholder="Вуз, город, страна, программа" value=${f.q} onInput=${e=>upd({q:e.target.value})}/></div>
+        <button class="btn ftoggle" onClick=${()=>setOpen(!open)} aria-expanded=${open}><${Icon} n="filter" s=${16}/>${active?'Фильтры · '+active:'Фильтры'}</button>
+      </div>
+      <div class="row" style="justify-content:space-between">
+        <div class="seg" role="radiogroup" aria-label="Вид списка">
+          <button type="button" role="radio" aria-checked=${f.group==='country'} class=${f.group==='country'?'on':''} onClick=${()=>upd({group:'country'})}>По странам</button>
+          <button type="button" role="radio" aria-checked=${f.group!=='country'} class=${f.group!=='country'?'on':''} onClick=${()=>upd({group:'none'})}>Общий список</button>
+        </div>
+        <label class="sortsel"><span class="small muted">Сортировка</span><select id="uni-sort" class="inp" value=${f.sort} onChange=${e=>upd({sort:e.target.value})}>${Object.entries(SORTS).map(([k,v])=>html`<option value=${k}>${v}</option>`)}</select></label>
+      </div>
+      <div class=${'filters'+(open?'':' closed')}>
+        <div class="frow"><span class="fl">Страна</span>${chip('country','all','Все')}${countries.map(g=>chip('country',g.name,g.name,g.list.length))}</div>
+        <div class="frow"><span class="fl">Статус</span>${chip('status','all','Все')}${PIPE.map(g=>chip('status',g.id,g.label,unis.filter(u=>g.st.includes(u.status)).length))}</div>
+        <div class="frow"><span class="fl">Деньги</span>${chip('funding','all','Любое')}${Object.entries(FUNDING).map(([k,v])=>chip('funding',k,v.label,unis.filter(u=>funding(u)===k).length))}</div>
+      </div>
+    </div>
+    ${!filtered.length?html`<div class="card empty">${unis.length?html`<span>Ничего не найдено по этим фильтрам.</span><button class="btn sm" onClick=${()=>upd({q:'',country:'all',status:'all',funding:'all'})}>Сбросить фильтры</button>`:html`<span>Список пуст.</span><div class="row" style="justify-content:center"><button class="btn primary sm" onClick=${()=>ui.open({type:'uni'})}>Добавить вуз</button><button class="btn sm" onClick=${()=>ui.open({type:'import'})}>Из PDF или текста</button></div>`}</div>`
+    :groups?html`<div class="cgroups">
+        ${groups.length>1?html`<button class="btn sm ghost" style="justify-self:end" onClick=${()=>{const n={};if(allOpen)groups.forEach(g=>n[g.key]=true);setCollapsed(n);lsSet(CKEY,JSON.stringify(n));}}>${allOpen?'Свернуть все страны':'Развернуть все страны'}</button>`:''}
+        ${groups.map(g=>html`<${CountryGroup} key=${g.key} g=${g} S=${S} collapsed=${!!collapsed[g.key]} onToggle=${()=>toggleC(g.key)}/>`)}
+      </div>`
+    :html`<div class="uni-grid">${flat.map(u=>html`<${UniCard} key=${u.id} u=${u} S=${S}/>`)}</div>`}
+  </div>`;
+}
+function CountryGroup({g,S,collapsed,onToggle}){
+  const list=g.list;
+  const sent=list.filter(u=>SENT_ST.includes(u.status)).length;
+  const adm=list.filter(u=>u.status==='admitted'||u.status==='committed').length;
+  let nd=null;for(const u of list){const n=nextDeadline(u);if(n&&(!nd||n.inst<nd.inst))nd={...n,uni:u};}
+  let best=null;for(const u of list){const fi=finance(u);const v=toUSD(fi.mine,fi.cur,S);if(v!=null&&(!best||v<best.v))best={v,u};}
+  const fr=list.filter(u=>funding(u)==='fullride').length;
+  return html`<section class="cgroup">
+    <button class="cg-head" onClick=${onToggle} aria-expanded=${!collapsed}>
+      <span class=${'cg-chev'+(collapsed?'':' open')}><${Icon} n="chev" s=${15}/></span>
+      <span class="cg-title"><b>${g.name}</b><span class="small faint">${list.length} ${plural(list.length,'вуз','вуза','вузов')}</span></span>
+      <span class="cg-meta">
+        <span>подано: ${sent}${adm?' · приняли: '+adm:''}</span>
+        ${nd?html`<span>ближайший дедлайн: <b>${fmtDate(nd.date,{day:'numeric',month:'short'})}</b> (${nd.uni.name})</span>`:html`<span class="faint">дедлайнов нет</span>`}
+        ${best?html`<span>меньший остаток: <b>${fmtMoney(best.v,'USD')}</b>/год</span>`:''}
+        ${fr?html`<span class="tag t-gold">full ride: ${fr}</span>`:''}
+      </span>
+    </button>
+    ${collapsed?'':html`<div class="uni-grid">${list.map(u=>html`<${UniCard} key=${u.id} u=${u} S=${S}/>`)}</div>`}
+  </section>`;
+}
+function UniCard({u,S}){
+  const f=finance(u);const nd=nextDeadline(u);const dp=docProgress(u);const cd=nd&&countdown(nd.inst);
+  const usd=f.cur!=='USD'?toUSD(f.mine,f.cur,S):null;
+  return html`<a class="card uni-card" href=${'#uni-'+u.id}>
+    <div class="uc-top"><${StatusPill} s=${u.status}/><${FundingTag} u=${u}/>${u.example?html`<span class="ex-tag">пример</span>`:''}</div>
+    <div class="uc-name"><h3>${u.name}</h3><span class="muted small">${[u.city,u.country].filter(Boolean).join(', ')}${u.tier?' · '+TIERS[u.tier]:''}</span><span class="uc-prog">${u.program||'Программа не выбрана'}</span></div>
+    <${Covers} u=${u}/>
+    <div class="uc-foot">
+      <div class="kv"><label>Остаток / год</label><b>${f.mine!=null?fmtMoney(f.mine,f.cur):'Не рассчитан'}</b><span>${usd!=null?'≈ '+fmtMoney(usd,'USD')+' · ':''}${BASIS[f.basis].label}</span></div>
+      <div class="kv"><label>Следующий дедлайн</label><b>${nd?fmtDate(nd.date,{day:'numeric',month:'short'}):'—'}</b><span>${nd?nd.label+' · '+cd.txt:'нет будущих'}</span></div>
+    </div>
+    ${dp.n?html`<div class="progress"><span>Документы ${dp.ok}/${dp.n}</span><div class="bar"><i class="grow" style=${{width:(dp.ok/dp.n*100)+'%'}}></i></div></div>`:''}
+  </a>`;
+}
+
+/* =========================================================
+   Страница вуза
+   ========================================================= */
+function UniDetail({id,data,ui}){
+  const u=data.unis[id];
+  if(!u)return html`<div class="wrap"><a class="back" href="#unis"><${Icon} n="back" s=${16}/>Все вузы</a><div class="card empty">${Store.ready?'Этот вуз не найден — возможно, он удалён.':'Загружаю…'}</div></div>`;
+  const S=data.settings;const f=finance(u);const nd=nextDeadline(u);const cd=nd&&countdown(nd.inst);
+  const tasks=Object.values(data.tasks).filter(t=>t.uniId===u.id).sort((a,b)=>(a.done-b.done)||((a.due?daysUntil(a.due):999)-(b.due?daysUntil(b.due):999)));
+  const dls=(u.deadlines||[]).map(d=>({...d,uni:u,inst:deadlineInstant(d)})).sort((a,b)=>(a.inst||0)-(b.inst||0));
+  const st=ST[u.status]||ST.research;const web=safeUrl(u.website),portal=safeUrl(u.portal);
+  const fr=activeSch(u).some(isFullRide);
+  const unv=unverified(u);
+  return html`<div class="wrap">
+    <a class="back" href="#unis"><${Icon} n="back" s=${16}/>Все вузы</a>
+    <header class="d-head">
+      <div class="d-title">
+        <div style="min-width:0">
+          <div class="row" style="gap:8px;margin-bottom:8px"><${FundingTag} u=${u}/>${u.tier?html`<span class="tag t-neutral">${TIERS[u.tier]}</span>`:''}${u.example?html`<span class="tag t-unv">пример</span>`:''}</div>
+          <h1>${u.name}</h1>
+          <div class="d-sub"><span>${[u.city,u.country].filter(Boolean).join(', ')}</span>${u.acceptanceRate?html`<span title="Из стороннего источника, не сверено">Acceptance rate: ${u.acceptanceRate} (по PDF)</span>`:''}<span>${u.program||'Программа не выбрана'}${u.degree?' · '+u.degree:''}</span>${web?html`<a href=${web} target="_blank" rel="noopener noreferrer">Сайт ↗</a>`:''}${portal?html`<a href=${portal} target="_blank" rel="noopener noreferrer">Портал заявки ↗</a>`:''}</div>
+        </div>
+        <div class="row">
+          <label class="sr" for="st-sel">Статус заявки</label>
+          <select id="st-sel" class=${'status-select t-'+st.tone} value=${u.status} onChange=${e=>{A.patchUni(u.id,{status:e.target.value});toast('Статус: '+ST[e.target.value].label);}}>${STATUSES.map(s=>html`<option value=${s.id}>${s.label}</option>`)}</select>
+          <button class="btn" onClick=${()=>ui.open({type:'import',uni:u})}><${Icon} n="spark" s=${16}/>Дополнить из PDF</button>
+          <button class="btn" onClick=${()=>ui.open({type:'uni',uni:u})}><${Icon} n="edit" s=${16}/>Изменить</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="card sum">
+      <div><span class="eyebrow">Мой остаток к оплате в год</span>
+        <span class="big">${f.mine!=null?fmtMoney(f.mine,f.cur):'Не рассчитан'}</span>
+        <span class="small muted">${f.mine!=null&&f.cur!=='USD'&&toUSD(f.mine,f.cur,S)!=null?'≈ '+fmtMoney(toUSD(f.mine,f.cur,S),'USD')+' · ':''}<span class=${'tag t-'+BASIS[f.basis].tone}>${BASIS[f.basis].label}</span></span>
+        ${f.basis==='prelim'&&f.uncounted.length?html`<span class="small faint">Не учтено (нет суммы): ${f.uncounted.join(', ')}</span>`:''}
+        ${f.basis==='none'?html`<span class="small faint">Внесите опубликованную стоимость или свою оценку расходов.</span>`:''}
+      </div>
+      <div><span class="eyebrow">${fr?'Full ride возможен':'Покрытие жилья и питания'}</span><${Covers} u=${u} keys=${['tuition','housing','food','insurance','travel']}/>
+        <span class="small faint">${activeSch(u).length?'Лучшее покрытие среди стипендий этого вуза':'Стипендии ещё не добавлены'}</span></div>
+      <div><span class="eyebrow">Следующий дедлайн</span>${nd?html`<span class="big">${cd.n} <span style="font-size:15px;font-family:var(--f-body)">${cd.unit}</span></span><span class="small muted">${nd.label} · ${deadlineLine(nd)}</span><${SourceTag} f=${nd}/>`:html`<span class="muted">Нет будущих дедлайнов</span>`}</div>
+    </section>
+
+    ${unv.length?html`<div class="notice"><${Icon} n="alert"/><div class="notice-body"><b>Не проверено: ${unv.length}</b><span>${unv.join(', ')}. Найдите значение на официальной странице и добавьте ссылку и дату проверки.</span></div></div>`:''}
+
+    <nav class="jump" aria-label="Разделы страницы"><a href=${'#uni-'+u.id} onClick=${e=>{e.preventDefault();document.getElementById('s-dl').scrollIntoView({behavior:'smooth'});}}>Дедлайны</a>${['req:Требования','cost:Стоимость','sch:Стипендии','docs:Документы','files:Файлы','steps:Следующие шаги','notes:Заметки'].map(x=>{const [k,l]=x.split(':');return html`<a href=${'#uni-'+u.id} onClick=${e=>{e.preventDefault();document.getElementById('s-'+k).scrollIntoView({behavior:'smooth'});}}>${l}</a>`;})}</nav>
+
+    <section class="section anchor" id="s-dl">
+      <div class="sec-head"><h2><${Icon} n="cal"/>Дедлайны поступления и стипендий</h2><button class="btn sm" onClick=${()=>ui.open({type:'deadline',uni:u})}><${Icon} n="plus" s=${15}/>Дедлайн</button></div>
+      <div class="card"><div class="list">
+        ${dls.map(d=>html`<div key=${d.id} class=${'dl-row'+(d.done?' done-row':'')} style="grid-template-columns:auto 48px minmax(0,1fr) auto">
+          <input type="checkbox" class="chk" checked=${!!d.done} aria-label="Выполнено" onChange=${()=>{const ds=(u.deadlines||[]).map(x=>x.id===d.id?{...x,done:!x.done}:x);A.patchUni(u.id,{deadlines:ds});}}/>
+          <div class="dl-date"><b>${d.date?parseISO(d.date).getDate():'?'}</b><span>${d.date?new Intl.DateTimeFormat('ru-RU',{month:'short'}).format(parseISO(d.date)).replace('.',''):''}</span></div>
+          <div class="dl-body"><div class="dl-title">${d.label}</div><div class="dl-sub">${DL_TYPES[d.type]||'Дедлайн'} · ${deadlineLine(d)}</div>${d.note?html`<div class="dl-meta">${d.note}</div>`:''}<div><${SourceTag} f=${d}/></div></div>
+          <div class="dl-right">${d.inst!=null&&!d.done?html`<span class=${'tag t-'+countdown(d.inst).tone}>${countdown(d.inst).txt}</span>`:''}<button class="btn icon ghost" aria-label="Изменить дедлайн" onClick=${()=>ui.open({type:'deadline',uni:u,item:d})}><${Icon} n="edit" s=${16}/></button></div>
+        </div>`)}
+        ${!dls.length?html`<div class="empty small">Дедлайнов нет. Добавьте сроки заявки, финансовой помощи и стипендий — с источником.</div>`:''}
+      </div></div>
+    </section>
+
+    <section class="section anchor" id="s-req">
+      <div class="sec-head"><h2><${Icon} n="check"/>Требования к поступлению</h2><button class="btn sm" onClick=${()=>ui.open({type:'req',uni:u})}><${Icon} n="edit" s=${15}/>Изменить</button></div>
+      <div class="card req">
+        ${REQ_FIELDS.map(([k,l])=>{const v=(u.requirements||{})[k];return html`<div class="req-row"><span class="req-k">${l}</span><span class="req-v">${v||html`<span class="nv">Не проверено</span>`}</span></div>`;})}
+        <div class="req-foot"><${SourceTag} f=${u.requirements}/></div>
+      </div>
+    </section>
+
+    <section class="section anchor" id="s-cost">
+      <div class="sec-head"><h2><${Icon} n="wallet"/>Стоимость и мой остаток</h2><span class="small faint">Валюта: ${f.cur}</span></div>
+      <div class="layers">
+        <${PublishedLayer} u=${u} f=${f} S=${S} ui=${ui}/>
+        <${PrelimLayer} u=${u} f=${f} S=${S} ui=${ui}/>
+        <${OfferLayer} u=${u} f=${f} S=${S} ui=${ui}/>
+      </div>
+    </section>
+
+    <section class="section anchor" id="s-sch">
+      <div class="sec-head"><h2><${Icon} n="award"/>Стипендии и финансовая помощь</h2><button class="btn sm" onClick=${()=>ui.open({type:'scholarship',uni:u})}><${Icon} n="plus" s=${15}/>Стипендия</button></div>
+      ${(u.scholarships||[]).map(s=>html`<${SchCard} key=${s.id} s=${s} u=${u} ui=${ui} cur=${f.cur} S=${S}/>`)}
+      ${!(u.scholarships||[]).length?html`<div class="card empty small">Стипендий нет. Добавьте название, что покрывает (обучение, жильё, питание), сумму и условия — с официальной ссылкой.</div>`:''}
+    </section>
+
+    <section class="section anchor" id="s-docs">
+      <div class="sec-head"><h2><${Icon} n="doc"/>Необходимые документы</h2><span class="small faint">Нажмите на статус, чтобы сменить его</span></div>
+      <${Docs} u=${u}/>
+    </section>
+
+    <${FilesSection} u=${u} ui=${ui}/>
+
+    <section class="section anchor" id="s-steps">
+      <div class="sec-head"><h2><${Icon} n="tasks"/>Мои следующие шаги</h2><button class="btn sm" onClick=${()=>ui.open({type:'task',task:{uniId:u.id}})}><${Icon} n="plus" s=${15}/>Шаг со сроком</button></div>
+      <div class="card"><div class="list">
+        ${tasks.map(t=>html`<${TaskRow} key=${t.id} t=${t} data=${data} ui=${ui} showUni=${false}/>`)}
+        <${QuickAdd} placeholder="Новый шаг, например: «Запросить рекомендацию у учителя математики»" onAdd=${title=>A.saveTask({id:uid('t'),title,uniId:u.id,due:null,priority:'normal',done:false,createdAt:todayISO()})}/>
+      </div></div>
+    </section>
+
+    <section class="section anchor" id="s-notes">
+      <div class="sec-head"><h2><${Icon} n="link"/>Заметки</h2><button class="btn sm ghost" onClick=${()=>ui.open({type:'uni',uni:u})}>Изменить</button></div>
+      <div class="card" style="padding:16px 18px"><p class="cond">${u.notes||'Заметок нет.'}</p></div>
+    </section>
+  </div>`;
+}
+function QuickAdd({placeholder,onAdd}){
+  const [v,setV]=useState('');
+  const submit=e=>{e.preventDefault();const t=v.trim();if(!t)return;onAdd(t);setV('');};
+  return html`<form class="addline" onSubmit=${submit}><input class="inp" value=${v} onInput=${e=>setV(e.target.value)} placeholder=${placeholder} aria-label=${placeholder}/><button class="btn" type="submit" disabled=${!v.trim()}>Добавить</button></form>`;
+}
+function PublishedLayer({u,f,S,ui}){
+  const p=(u.costs||{}).published||{};const it=p.items||{};
+  return html`<div class="card layer">
+    <div class="layer-head"><div><span class="eyebrow">1 · Опубликовано вузом</span><h3>Cost of attendance${p.year?' '+p.year:''}</h3></div><button class="btn icon ghost" aria-label="Изменить опубликованную стоимость" onClick=${()=>ui.open({type:'cost',uni:u,layer:'published'})}><${Icon} n="edit" s=${16}/></button></div>
+    ${f.pub?html`<div class="layer-total">${fmtMoney(f.pub.total,f.cur)}</div>`:html`<div class="layer-total faint">Не проверено</div>`}
+    <div class="lines">${COST_ITEMS.map(([k,l])=>html`<div class="line"><span>${l}</span>${num(it[k])?html`<${Money} n=${it[k]} cur=${f.cur} S=${S} showUsd=${false}/>`:html`<span class="nv">Не проверено</span>`}</div>`)}
+      ${f.pub?html`<div class="line total"><span>Итого${f.pub.official?' (по данным вуза)':' (сумма строк)'}</span><${Money} n=${f.pub.total} cur=${f.cur} settings=${S}/></div>`:''}</div>
+    ${p.note?html`<p class="small muted">${p.note}</p>`:''}
+    <${SourceTag} f=${p}/>
+  </div>`;
+}
+function PrelimLayer({u,f,S,ui}){
+  const e=(u.costs||{}).estimate||{};
+  return html`<div class="card layer">
+    <div class="layer-head"><div><span class="eyebrow">2 · Предварительный расчёт</span><h3>Мой остаток в год</h3></div><button class="btn icon ghost" aria-label="Изменить мою оценку" onClick=${()=>ui.open({type:'cost',uni:u,layer:'estimate'})}><${Icon} n="edit" s=${16}/></button></div>
+    ${f.prelim!=null?html`<div class="layer-total" style="color:var(--accent)">${fmtMoney(f.prelim,f.cur)}</div>`:html`<div class="layer-total faint">Нельзя рассчитать</div>`}
+    ${f.base?html`<div class="lines">
+      <div class="line"><span>${f.baseKind==='estimate'?'Моя оценка стоимости года':'Опубликованная стоимость'}</span><span>${fmtMoney(f.base.total,f.cur)}</span></div>
+      ${f.covParts.map(c=>html`<div class="line minus"><span>− ${c.name}</span><span>−${fmtMoney(c.v,f.cur)}</span></div>`)}
+      ${f.uncounted.map(n=>html`<div class="line"><span>− ${n}</span><span class="nv">сумма неизвестна</span></div>`)}
+      <div class="line total"><span>Остаток</span><${Money} n=${f.prelim} cur=${f.cur} settings=${S}/></div>
+    </div>`:html`<p class="small muted">Нет ни опубликованной стоимости, ни вашей оценки. Нажмите «изменить» и внесите ожидаемые расходы: жильё, питание, страховка, перелёты.</p>`}
+    <p class="small faint">Расчёт, а не обещание вуза. Стипендия учитывается по сумме, а если суммы нет — по статьям, отмеченным «покрывается».${e.note?' '+e.note:''}</p>
+  </div>`;
+}
+function OfferLayer({u,f,S,ui}){
+  const o=(u.costs||{}).offer||{};const has=f.offerNet!=null||num(o.coa)||num(o.grants);
+  return html`<div class="card layer">
+    <div class="layer-head"><div><span class="eyebrow">3 · Фактическое предложение</span><h3>Award letter вуза</h3></div><button class="btn icon ghost" aria-label="Изменить предложение вуза" onClick=${()=>ui.open({type:'cost',uni:u,layer:'offer'})}><${Icon} n="edit" s=${16}/></button></div>
+    ${has?html`
+      ${f.offerNet!=null?html`<div class="layer-total" style="color:var(--ok)">${fmtMoney(f.offerNet,f.cur)}</div>`:''}
+      <div class="lines">
+        ${num(o.coa)?html`<div class="line"><span>COA в письме</span><span>${fmtMoney(o.coa,f.cur)}</span></div>`:''}
+        ${num(o.grants)?html`<div class="line minus"><span>− Гранты и стипендии</span><span>−${fmtMoney(o.grants,f.cur)}</span></div>`:''}
+        ${num(o.loans)?html`<div class="line"><span>Займы (вернуть)</span><span>${fmtMoney(o.loans,f.cur)}</span></div>`:''}
+        ${num(o.work)?html`<div class="line"><span>Work-study (заработать)</span><span>${fmtMoney(o.work,f.cur)}</span></div>`:''}
+        ${f.offerNet!=null?html`<div class="line total"><span>К оплате семьёй</span><${Money} n=${f.offerNet} cur=${f.cur} settings=${S}/></div>`:''}
+      </div>
+      ${o.note?html`<p class="small muted">${o.note}</p>`:''}
+      <span class="small faint">${o.receivedAt?'Получено '+fmtDate(o.receivedAt):''}${o.ref?' · '+o.ref:''}</span>`
+    :html`<div class="layer-total faint">Пока нет</div><p class="small muted">Когда вуз пришлёт решение о финансовой помощи, внесите цифры из письма — они заменят предварительный расчёт.</p>`}
+  </div>`;
+}
+function SchCard({s,u,ui,cur,S}){
+  const toggle=()=>{const list=(u.scholarships||[]).map(x=>x.id===s.id?{...x,include:x.include===false}:x);A.patchUni(u.id,{scholarships:list});};
+  return html`<div class="card sch">
+    <div class="sch-head"><div style="min-width:0"><h3>${s.name}</h3><div class="sch-meta"><span>${SCH_TYPES[s.type]||'Стипендия'}</span><span class=${'pill t-'+(SCH_TONE[s.status]||'neutral')}>${SCH_STATUS[s.status]||'Планирую подать'}</span>${isFullRide(s)?html`<span class="tag t-gold">Full ride</span>`:''}</div></div>
+      <button class="btn icon ghost" aria-label="Изменить стипендию" onClick=${()=>ui.open({type:'scholarship',uni:u,item:s})}><${Icon} n="edit" s=${16}/></button></div>
+    <div class="covers">${COVER_KEYS.map(([k,l])=>{const v=(s.covers||{})[k]||'unknown';return html`<span class=${'cv cv-'+v}>${v==='yes'?'✓':v==='no'?'✕':v==='partial'?'◐':'?'} ${l}: ${COVER_LV[v]}</span>`;})}</div>
+    <div class="sch-meta">
+      <span><b>Сумма в год:</b> ${num(s.amount)?html`<${Money} n=${s.amount} cur=${cur} settings=${S}/>`:html`<span class="faint">не указана</span>`}</span>
+      ${s.stipend?html`<span><b>Стипендия на жизнь:</b> ${s.stipend}</span>`:''}
+      <span><b>Продление:</b> ${s.renewable==='yes'?'да, на весь срок':s.renewable==='no'?'нет':'не проверено'}</span>
+    </div>
+    ${s.conditions?html`<p class="cond">${s.conditions}</p>`:''}
+    <div class="row" style="justify-content:space-between"><${SourceTag} f=${s}/><label class="toggle"><input type="checkbox" checked=${s.include!==false} onChange=${toggle}/>Учитывать в расчёте остатка</label></div>
+  </div>`;
+}
+function Docs({u}){
+  const docs=u.documents||[];
+  const save=list=>A.patchUni(u.id,{documents:list});
+  const cycle=d=>{const i=DOC_ST.findIndex(x=>x[0]===d.status);const nx=DOC_ST[(i+1)%DOC_ST.length][0];save(docs.map(x=>x.id===d.id?{...x,status:nx}:x));};
+  return html`<div class="card docs"><div class="list">
+    ${docs.map(d=>{const st=DOC_ST.find(x=>x[0]===d.status)||DOC_ST[0];return html`<div class="doc" key=${d.id}>
+      <button class=${'pill doc-st t-'+st[2]} onClick=${()=>cycle(d)} title="Сменить статус">${st[1]}</button>
+      <div class="doc-name"><div>${d.name}</div>${d.note?html`<div class="small faint">${d.note}</div>`:''}</div>
+      <button class="btn icon ghost" aria-label=${'Удалить документ '+d.name} onClick=${()=>save(docs.filter(x=>x.id!==d.id))}><${Icon} n="x" s=${15}/></button>
+    </div>`;})}
+    ${!docs.length?html`<div class="empty small">Список пуст. Добавьте документы из требований вуза: транскрипт, сертификат английского, эссе, рекомендации, паспорт, финансовые формы.</div>`:''}
+    <${QuickAdd} placeholder="Документ, например: «Транскрипт за 10–11 класс»" onAdd=${name=>save([...docs,{id:uid('d'),name,status:'todo'}])}/>
+  </div></div>`;
+}
+
+/* =========================================================
+   Файлы вуза
+   ========================================================= */
+function FilesSection({u,ui}){
+  const assets=useCap('assets');const inp=useRef();const [busy,setBusy]=useState(false);const [over,setOver]=useState(false);
+  const files=u.files||[];
+  const save=list=>A.patchUni(u.id,{files:list});
+  const upload=async list=>{
+    if(!assets||!list.length)return;setBusy(true);const added=[];
+    for(const file of list){
+      const type=file.type||(/\.pdf$/i.test(file.name)?'application/pdf':'');
+      try{const r=await assets.upload(file,type?{type}:undefined);
+        added.push({id:uid('f'),assetId:r.id,name:file.name,size:r.sizeBytes,type:r.contentType,kind:/award|aid|offer|financ/i.test(file.name)?'award':'other',addedAt:todayISO()});}
+      catch(e){toast(uploadErr(e,file.name));}
+    }
+    if(added.length){await save([...(((Store.data.unis[u.id]||u).files)||[]),...added]);toast(added.length===1?'Файл добавлен':'Файлов добавлено: '+added.length);}
+    setBusy(false);
+  };
+  const del=async f=>{try{if(assets)await assets.delete(f.assetId);}catch(e){}await save(files.filter(x=>x.id!==f.id));toast('Файл удалён');};
+  return html`<section class="section anchor" id="s-files">
+    <div class="sec-head"><h2><${Icon} n="clip"/>Файлы</h2>${assets?html`<button class="btn sm" disabled=${busy} onClick=${()=>inp.current&&inp.current.click()}><${Icon} n="upload" s=${15}/>${busy?'Загружаю…':'Загрузить'}</button>`:''}</div>
+    <div class="card"><div class="list">
+      ${files.map(f=>html`<div class="file" key=${f.id}>
+        <span class="file-ic">${(f.type||'').includes('pdf')?'PDF':'ФОТО'}</span>
+        <div class="file-main"><a href=${blobUrl(f.assetId)} target="_blank" rel="noopener">${f.name}</a><span class="small faint">${FILE_KINDS[f.kind]||'Другое'} · ${fmtSize(f.size)} · ${fmtDate(f.addedAt)}</span></div>
+        <div class="file-acts">
+          <select class="inp" aria-label="Тип файла" value=${f.kind||'other'} onChange=${e=>save(files.map(x=>x.id===f.id?{...x,kind:e.target.value}:x))}>${Object.entries(FILE_KINDS).map(([k,v])=>html`<option value=${k}>${v}</option>`)}</select>
+          <button class="btn sm" onClick=${()=>ui.open({type:'import',uni:u,fileRef:f})}><${Icon} n="spark" s=${14}/>Распознать</button>
+          <${ConfirmBtn} small label="Удалить" armedLabel="Удалить файл?" onConfirm=${()=>del(f)}/>
+        </div>
+      </div>`)}
+      ${assets?html`<label class=${'drop'+(over?' over':'')} style="margin:14px 18px" onDragOver=${e=>{e.preventDefault();setOver(true);}} onDragLeave=${()=>setOver(false)} onDrop=${e=>{e.preventDefault();setOver(false);upload([...e.dataTransfer.files]);}}>
+          <${Icon} n="upload" s=${22}/><span><b>Перетащите PDF или фото</b> или нажмите, чтобы выбрать</span><span class="small faint">Брошюры, требования, письма вуза, award letter — до 20 МБ</span>
+          <input ref=${inp} type="file" multiple accept="application/pdf,image/png,image/jpeg,image/webp" class="sr" onChange=${e=>{const l=[...e.target.files];e.target.value='';upload(l);}}/>
+        </label>`
+      :html`<div class="empty small">${assets===undefined?'Проверяю доступ к хранилищу файлов…':'Загрузка файлов работает в версии дашборда на claude.ai — у владельца и редакторов.'}</div>`}
+    </div></div>
+  </section>`;
+}
+
+/* =========================================================
+   Импорт из PDF / текста
+   ========================================================= */
+function ImportSheet({uni,fileRef,ui}){
+  const sample=useCap('sample');const assets=useCap('assets');
+  const [tab,setTab]=useState(fileRef?'file':'pdf');
+  const [file,setFile]=useState(null);const [text,setText]=useState('');const [over,setOver]=useState(false);
+  const [step,setStep]=useState('input');const [msg,setMsg]=useState('');const [err,setErr]=useState('');
+  const [result,setResult]=useState(null);
+  const ctl=useRef(null);
+  const run=async()=>{
+    setErr('');setStep('working');setMsg('Готовлю документ…');const c=new AbortController();ctl.current=c;
+    try{
+      let content='',images=null,name='',att=null,origin='pdf';
+      if(tab==='text'){content=text.trim();name='текст, введённый вручную';origin='text';}
+      else{
+        let blob=file;name=file?file.name:'';
+        if(tab==='file'){setMsg('Открываю сохранённый файл…');const r=await fetch(blobUrl(fileRef.assetId));if(!r.ok)throw new Error('Не удалось открыть сохранённый файл. Загрузите его заново.');blob=await r.blob();name=fileRef.name;}
+        const isImg=(blob.type||'').startsWith('image/')||/\.(png|jpe?g|webp)$/i.test(name);
+        if(isImg){const lim=await sample.limits().catch(()=>null);if(!lim||!lim.images)throw {code:'images_unavailable'};images=[blob];}
+        else{
+          const r=await pdfToText(blob,(i,n)=>setMsg('Читаю PDF: страница '+i+' из '+n));
+          content=r.text;if(r.pages>60)content+='\n\n[Документ длиннее 60 страниц — прочитаны первые 60]';
+          if(content.replace(/\[стр\. \d+\]|\s/g,'').length<200){
+            const lim=await sample.limits().catch(()=>null);
+            if(!lim||!lim.images)throw new Error('В этом PDF нет текста (похоже на скан), а отправка изображений здесь недоступна. Скопируйте текст во вкладку «Текст».');
+            setMsg('В PDF нет текста — похоже на скан. Готовлю изображения страниц…');
+            images=await pdfPagesToImages(r.doc,Math.min(lim.images.maxCount||4,5));content='';
+          }
+        }
+        if(c.signal.aborted){setStep('input');return;}
+        if(tab==='pdf'&&assets){setMsg('Сохраняю файл…');try{const up=await assets.upload(blob,blob.type?undefined:{type:'application/pdf'});att={assetId:up.id,size:up.sizeBytes,type:up.contentType,name,isNew:true};}catch(e){toast(uploadErr(e,name));}}
+        if(tab==='file')att={assetId:fileRef.assetId,name,isNew:false};
+      }
+      setMsg('Claude разбирает документ. Обычно это 20–60 секунд…');
+      const opts={signal:c.signal,modelTier:'default'};if(images)opts.images=images;
+      const data=await sample.json(buildPrompt(content.slice(0,150000),name,uni,!!images),opts);
+      setResult({res:normalizeExtract(data),att,origin});setStep('review');
+    }catch(e){if(e&&e.code==='cancelled'){setStep('input');return;}setErr(sampleErr(e));setStep('input');}
+  };
+  if(step==='review'&&result)return html`<${ImportReview} res=${result.res} att=${result.att} origin=${result.origin} uni=${uni} ui=${ui} onBack=${()=>setStep('input')}/>`;
+  const canRun=!!sample&&(tab==='text'?text.trim().length>=20:tab==='pdf'?!!file:true);
+  const close=()=>{if(ctl.current)ctl.current.abort();ui.close();};
+  return html`<${Sheet} title=${uni?'Дополнить «'+uni.name+'» из документа':'Новый вуз из документа'} onClose=${close}
+    footer=${step==='working'?html`<span></span><button class="btn" onClick=${()=>ctl.current&&ctl.current.abort()}>Остановить</button>`
+      :html`<span class="small faint">Ничего не сохранится до вашей проверки</span><div class="row"><button class="btn" onClick=${close}>Отмена</button><button class="btn primary" disabled=${!canRun} onClick=${run}><${Icon} n="spark" s=${16}/>Распознать</button></div>`}>
+    ${step==='working'?html`<div class="working"><div class="spin"></div><b>${msg}</b><span class="small muted">Можно остановить в любой момент.</span></div>`:html`
+      ${sample===null?html`<div class="notice"><${Icon} n="alert"/><div class="notice-body"><b>Распознавание здесь недоступно</b><span>Оно работает в версии дашборда на claude.ai. В локальной копии добавьте вуз вручную.</span></div></div>`:''}
+      ${err?html`<div class="notice" style="background:var(--crit-soft);color:var(--crit)"><${Icon} n="alert"/><span>${err}</span></div>`:''}
+      ${fileRef?html`<p>Файл: <b>${fileRef.name}</b></p>`:html`<div class="tabs" role="tablist"><button role="tab" aria-selected=${tab==='pdf'} class=${tab==='pdf'?'on':''} onClick=${()=>setTab('pdf')}>PDF или фото</button><button role="tab" aria-selected=${tab==='text'} class=${tab==='text'?'on':''} onClick=${()=>setTab('text')}>Текст</button></div>`}
+      ${tab==='pdf'?html`<label class=${'drop'+(over?' over':'')} onDragOver=${e=>{e.preventDefault();setOver(true);}} onDragLeave=${()=>setOver(false)} onDrop=${e=>{e.preventDefault();setOver(false);const f=e.dataTransfer.files[0];if(f)setFile(f);}}>
+          <${Icon} n="upload" s=${26}/>
+          <span>${file?html`<b>${file.name}</b> · ${fmtSize(file.size)}`:html`<b>Перетащите PDF или фото страницы</b> или нажмите, чтобы выбрать`}</span>
+          <span class="small faint">Брошюра, страница требований или стоимости, письмо о стипендии, award letter</span>
+          <input id="imp-file" type="file" class="sr" accept="application/pdf,image/png,image/jpeg,image/webp" onChange=${e=>{const f=e.target.files[0];if(f)setFile(f);}}/>
+        </label>`:''}
+      ${tab==='text'?html`<${Field} label="Вставьте или напишите текст"><textarea id="imp-text" class="inp" style="min-height:220px" value=${text} onInput=${e=>setText(e.target.value)} placeholder="Скопируйте текст со страницы вуза или напишите своими словами: название, страна, сроки, стоимость, стипендии, требования…"></textarea></${Field}>`:''}
+      <p class="small muted">Claude возьмёт из документа только то, что там написано: название, город, программу, дедлайны, стоимость, стипендии, документы и требования. Перед сохранением вы всё увидите и снимете лишнее. Данные из документа помечаются «Не проверено», пока вы их не сверите.</p>`}
+  </${Sheet}>`;
+}
+function ImportReview({res,att,origin,uni,ui,onBack}){
+  const [basic,setBasic]=useState({...res.basic});
+  const [sel,setSel]=useState({basic:true,costs:hasCosts(res.costs),req:hasReq(res.requirements),dl:res.deadlines.map(()=>true),sch:res.scholarships.map(()=>true),docs:res.documents.map(()=>true)});
+  const [src,setSrc]=useState(res.officialUrl||(att?absBlobUrl(att.assetId):''));
+  const [verified,setVerified]=useState(false);const [saving,setSaving]=useState(false);
+  const cur=res.currency||(uni&&uni.costs&&uni.costs.currency)||'USD';
+  const tog=(k,i)=>setSel(p=>{const n={...p};if(i==null)n[k]=!p[k];else{n[k]=[...p[k]];n[k][i]=!n[k][i];}return n;});
+  const B=[['name','Название'],['country','Страна'],['city','Город'],['program','Программа'],['degree','Уровень'],['website','Сайт'],['portal','Портал заявки']];
+  const found=Object.values(res.basic).some(Boolean)||res.deadlines.length||hasCosts(res.costs)||res.scholarships.length||res.documents.length||hasReq(res.requirements);
+  const canSave=!saving&&(uni||basic.name.trim());
+  const save=async()=>{setSaving(true);const id=await applyImport({res,sel,basic,uni,src:safeUrl(src)?src:'',verified,att,origin});ui.close();toast(uni?'Данные добавлены в «'+uni.name+'»':'Вуз создан из документа');go('uni-'+id);};
+  const Item=({on,onChange,children})=>html`<label class="imp-item"><input type="checkbox" checked=${on} onChange=${onChange}/><div>${children}</div></label>`;
+  return html`<${Sheet} title="Проверьте, что нашёл Claude" onClose=${ui.close}
+    footer=${html`<button class="btn ghost" onClick=${onBack}>Назад</button><div class="row"><button class="btn" onClick=${ui.close}>Отмена</button><button class="btn primary" disabled=${!canSave} onClick=${save}>${uni?'Добавить в «'+uni.name+'»':'Создать вуз'}</button></div>`}>
+    ${!found?html`<div class="notice"><${Icon} n="alert"/><span>Claude не нашёл в документе данных о вузе. Попробуйте другой файл или вставьте нужную часть текстом.</span></div>`:''}
+    ${res.warnings.length?html`<div class="notice"><${Icon} n="alert"/><div class="notice-body"><b>Обратите внимание</b>${res.warnings.map(w=>html`<span>${w}</span>`)}</div></div>`:''}
+    <div class="imp">
+      <label class="imp-h"><input type="checkbox" checked=${sel.basic} onChange=${()=>tog('basic')}/>Основное${uni?html`<span class="small faint">заполнит только пустые поля</span>`:''}</label>
+      ${sel.basic?html`<div class="f-row">${B.map(([k,l])=>html`<${Field} label=${l+(k==='name'&&!uni?' *':'')}><input class="inp" value=${basic[k]} onInput=${e=>setBasic({...basic,[k]:e.target.value})} placeholder=${res.basic[k]?'':'не найдено'}/></${Field}>`)}</div>`:''}
+    </div>
+    ${res.deadlines.length?html`<div class="imp"><div class="imp-h">Дедлайны <span class="faint">${res.deadlines.length}</span></div>
+      ${res.deadlines.map((d,i)=>html`<${Item} on=${sel.dl[i]} onChange=${()=>tog('dl',i)}><b>${d.label}</b><span class="small muted">${DL_TYPES[d.type]} · ${deadlineLine(d)}</span>${d.yearAssumed?html`<span class="small" style="color:var(--warn)">Год в документе не указан — проставлен по циклу. Останется «Не проверено».</span>`:''}${d.quote?html`<span class="small faint">«${d.quote}»</span>`:''}</${Item}>`)}</div>`:''}
+    ${hasCosts(res.costs)?html`<div class="imp"><div class="imp-h">Стоимость</div>
+      <${Item} on=${sel.costs} onChange=${()=>tog('costs')}><b>Опубликованная стоимость${res.costs.year?' '+res.costs.year:''}, ${cur}</b>
+        <div class="imp-kv" style="margin-top:6px">${COST_ITEMS.filter(([k])=>res.costs.items[k]!=null).map(([k,l])=>html`<span class="muted">${l}</span><span>${fmtMoney(res.costs.items[k],cur)}</span>`)}${res.costs.total!=null?html`<b>Итого</b><b>${fmtMoney(res.costs.total,cur)}</b>`:''}</div>
+        ${res.costs.note?html`<span class="small faint">${res.costs.note}</span>`:''}${uni&&uni.costs&&uni.costs.published?html`<span class="small" style="color:var(--warn)">Заменит уже внесённую опубликованную стоимость</span>`:''}</${Item}></div>`:''}
+    ${res.scholarships.length?html`<div class="imp"><div class="imp-h">Стипендии <span class="faint">${res.scholarships.length}</span></div>
+      ${res.scholarships.map((s,i)=>html`<${Item} on=${sel.sch[i]} onChange=${()=>tog('sch',i)}><b>${s.name}</b><span class="small muted">${SCH_TYPES[s.type]}${s.amount!=null?' · '+fmtMoney(s.amount,cur)+' в год':''}${s.stipend?' · '+s.stipend:''}</span>
+        <div class="covers" style="margin:6px 0">${COVER_KEYS.map(([k,l])=>html`<span class=${'cv cv-'+s.covers[k]}>${l}: ${COVER_LV[s.covers[k]]}</span>`)}</div>
+        ${s.conditions?html`<span class="small faint">${s.conditions.length>220?s.conditions.slice(0,220)+'…':s.conditions}</span>`:''}</${Item}>`)}</div>`:''}
+    ${res.documents.length?html`<div class="imp"><div class="imp-h">Документы <span class="faint">${res.documents.length}</span></div>
+      ${res.documents.map((d,i)=>html`<${Item} on=${sel.docs[i]} onChange=${()=>tog('docs',i)}>${d}</${Item}>`)}</div>`:''}
+    ${hasReq(res.requirements)?html`<div class="imp"><div class="imp-h">Требования</div>
+      <${Item} on=${sel.req} onChange=${()=>tog('req')}><div class="imp-kv">${REQ_FIELDS.filter(([k])=>res.requirements[k]).map(([k,l])=>html`<span class="muted">${l}</span><span>${res.requirements[k]}</span>`)}</div></${Item}></div>`:''}
+    <fieldset class="fs"><legend>Источник</legend>
+      <${Field} label="Ссылка на источник" hint=${res.officialUrl?'Найдена в документе':att?'По умолчанию — сохранённый файл. Лучше указать официальную страницу вуза.':'Укажите официальную страницу, откуда взят текст.'}><input class="inp" type="url" value=${src} onInput=${e=>setSrc(e.target.value.trim())} placeholder="https://…"/></${Field}>
+      <label class="toggle"><input type="checkbox" checked=${verified} disabled=${!safeUrl(src)} onChange=${e=>setVerified(e.target.checked)}/>Я сверил всё с официальным источником — отметить проверенным сегодня</label>
+    </fieldset>
+  </${Sheet}>`;
+}
+function ReqForm({uni,ui}){
+  const [f,set]=useForm({...Object.fromEntries(REQ_FIELDS.map(([k])=>[k,''])),source:'',checkedAt:'',...(uni.requirements||{})});
+  const save=()=>{const r={};for(const [k] of REQ_FIELDS)r[k]=(f[k]||'').trim();A.patchUni(uni.id,{requirements:{...r,source:f.source||'',checkedAt:f.checkedAt||'',origin:f.origin||''}});ui.close();toast('Требования сохранены');};
+  return html`<${Sheet} title=${'Требования · '+uni.name} onClose=${ui.close} footer=${html`<${Footer} onClose=${ui.close} onSave=${save}/>`}>
+    <p class="small muted">Пишите как на сайте вуза: минимальные баллы, сколько эссе и рекомендаций, обязательно ли интервью. Пустое поле показывается как «Не проверено».</p>
+    ${REQ_FIELDS.map(([k,l])=>html`<${Field} label=${l}><textarea id=${'rq-'+k} class="inp" style="min-height:48px" rows="2" value=${f[k]||''} onInput=${e=>set(k,e.target.value)}></textarea></${Field}>`)}
+    <${SourceFields} f=${f} set=${set}/>
+  </${Sheet}>`;
+}
+
+/* =========================================================
+   Задачи
+   ========================================================= */
+function Tasks({data,ui}){
+  const [showDone,setShowDone]=useState(false);
+  const tasks=Object.values(data.tasks);
+  const open=tasks.filter(t=>!t.done);const done=tasks.filter(t=>t.done).sort((a,b)=>(b.doneAt||'').localeCompare(a.doneAt||''));
+  const groups=[
+    ['Просрочено',open.filter(t=>t.due&&daysUntil(t.due)<0)],
+    ['Сегодня и завтра',open.filter(t=>t.due&&daysUntil(t.due)>=0&&daysUntil(t.due)<=1)],
+    ['Эта неделя',open.filter(t=>t.due&&daysUntil(t.due)>1&&daysUntil(t.due)<=7)],
+    ['Позже',open.filter(t=>t.due&&daysUntil(t.due)>7)],
+    ['Без срока',open.filter(t=>!t.due)],
+  ].map(([l,list])=>[l,list.sort((a,b)=>(a.due?daysUntil(a.due):0)-(b.due?daysUntil(b.due):0)||(a.priority==='high'?-1:1))]).filter(g=>g[1].length);
+  return html`<div class="wrap">
+    <header class="page-head"><div><div class="eyebrow">${open.length} ${plural(open.length,'открытая','открытые','открытых')} · ${done.length} выполнено</div><h1>Задачи</h1></div>
+      <button class="btn primary" onClick=${()=>ui.open({type:'task'})}><${Icon} n="plus" s=${16}/>Задача со сроком</button></header>
+    <div class="card"><${QuickAdd} placeholder="Быстро добавить задачу без срока" onAdd=${title=>A.saveTask({id:uid('t'),title,uniId:null,due:null,priority:'normal',done:false,createdAt:todayISO()})}/></div>
+    ${groups.map(([l,list])=>html`<section class="section"><div class="sec-head"><h2>${l} <span class="faint small">${list.length}</span></h2></div>
+      <div class="card"><div class="list">${list.map(t=>html`<${TaskRow} key=${t.id} t=${t} data=${data} ui=${ui}/>`)}</div></div></section>`)}
+    ${!open.length?html`<div class="card empty">Открытых задач нет.</div>`:''}
+    ${done.length?html`<section class="section"><button class="btn ghost" style="justify-self:start" onClick=${()=>setShowDone(!showDone)}>${showDone?'Скрыть':'Показать'} выполненные (${done.length})</button>
+      ${showDone?html`<div class="card"><div class="list">${done.map(t=>html`<${TaskRow} key=${t.id} t=${t} data=${data} ui=${ui}/>`)}</div></div>`:''}</section>`:''}
+  </div>`;
+}
+
+/* =========================================================
+   Настройки и данные
+   ========================================================= */
+function Config({data}){
+  const S=data.settings;
+  const [f,setF]=useState(()=>({rates:Object.fromEntries(RATE_CURRENCIES.map(c=>[c,num((S.rates||{})[c])?String(S.rates[c]):''])),ratesDate:S.ratesDate||'',ratesSource:S.ratesSource||'',budgetUSD:num(S.budgetUSD)?String(S.budgetUSD):''}));
+  const usedCur=[...new Set(Object.values(data.unis).map(u=>(u.costs||{}).currency).filter(c=>c&&c!=='USD'))];
+  const shown=[...new Set(['KGS',...usedCur])];
+  const [more,setMore]=useState(false);
+  const save=()=>{const rates={};for(const c of RATE_CURRENCIES){const n=toNum(f.rates[c]);if(n!=null&&n>0)rates[c]=n;}
+    A.saveSettings({...S,rates,ratesDate:f.ratesDate,ratesSource:f.ratesSource.trim(),budgetUSD:toNum(f.budgetUSD)});toast('Настройки сохранены');};
+  const examples=Object.values(data.unis).filter(u=>u.example);const exTasks=Object.values(data.tasks).filter(t=>t.example);
+  const fileRef=useRef();const [imp,setImp]=useState(null);
+  const onFile=e=>{const file=e.target.files[0];if(!file)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!Array.isArray(d.unis)||!Array.isArray(d.tasks))throw new Error('нет списков unis/tasks');setImp(d);}catch(err){toast('Файл не подходит: '+err.message);}};r.readAsText(file);e.target.value='';};
+  const doImport=async()=>{for(const u of imp.unis)if(u&&u.id)await Store.put('unis',u.id,u);for(const t of imp.tasks)if(t&&t.id)await Store.put('tasks',t.id,t);if(imp.settings)await A.saveSettings({...DEFAULT_SETTINGS,...S,...imp.settings});toast('Импортировано: '+imp.unis.length+' вузов, '+imp.tasks.length+' задач');setImp(null);};
+  const delExamples=async()=>{for(const u of examples)await Store.remove('unis',u.id);for(const t of exTasks)await Store.remove('tasks',t.id);toast('Примеры удалены');};
+  const rateField=c=>html`<${Field} label=${'1 USD = ? '+c}><input id=${'rate-'+c} class="inp" inputmode="decimal" placeholder="не задан" value=${f.rates[c]} onInput=${e=>setF({...f,rates:{...f.rates,[c]:e.target.value}})}/></${Field}>`;
+  return html`<div class="wrap" style="max-width:860px">
+    <header class="page-head"><div><div class="eyebrow">Настройки</div><h1>Курсы, бюджет и данные</h1></div></header>
+
+    <section class="card" style="padding:18px 20px;display:grid;gap:14px">
+      <h2>Как обновлять дашборд каждый день (5–10 минут)</h2>
+      <ol class="guide">
+        <li><div><b>Утром откройте «Главную».</b> <span class="muted">Посмотрите ближайший дедлайн и блок «Срочно сделать». Красные метки — меньше 7 дней.</span></div></li>
+        <li><div><b>Отметьте сделанное.</b> <span class="muted">Галочка у задачи или дедлайна, статус документа — одним нажатием. Если пришло письмо от вуза, смените статус заявки на его странице.</span></div></li>
+        <li><div><b>Проверьте один факт.</b> <span class="muted">Возьмите одно значение «Не проверено» или с жёлтой меткой «проверено N дней назад», откройте официальную страницу, исправьте цифру и нажмите «Сегодня» в поле даты проверки.</span></div></li>
+        <li><div><b>Запишите новые шаги.</b> <span class="muted">Всё, что узнали (нужна справка, тест, интервью), — сразу задачей со сроком на странице вуза.</span></div></li>
+        <li><div><b>Раз в неделю:</b> <span class="muted">обновите курсы валют ниже, сделайте резервную копию и просмотрите страницы стипендий — даты на следующий год обычно публикуют в ноябре–январе.</span></div></li>
+      </ol>
+    </section>
+
+    <section class="card" style="padding:18px 20px;display:grid;gap:14px">
+      <div><h2>Курсы валют</h2><p class="small muted" style="margin-top:3px">Нужны, чтобы сравнивать вузы в долларах и видеть сумму в сомах. Курсы не подставляются автоматически — внесите их с сайта Нацбанка КР или банка и укажите дату.</p></div>
+      <div class="rate-grid">${shown.map(rateField)}</div>
+      ${more?html`<div class="rate-grid">${RATE_CURRENCIES.filter(c=>!shown.includes(c)).map(rateField)}</div>`:html`<button class="btn sm ghost" style="justify-self:start" onClick=${()=>setMore(true)}>Другие валюты</button>`}
+      <div class="f-row">
+        <${Field} label="Дата курса"><input id="rates-date" class="inp" type="date" value=${f.ratesDate} onInput=${e=>setF({...f,ratesDate:e.target.value})}/></${Field}>
+        <${Field} label="Источник курса"><input id="rates-src" class="inp" type="url" placeholder="https://www.nbkr.kg/…" value=${f.ratesSource} onInput=${e=>setF({...f,ratesSource:e.target.value})}/></${Field}>
+      </div>
+      <div class="f-row"><${Field} label="Бюджет семьи на год, USD" hint="Сколько семья реально может платить в год. На главной появится линия бюджета."><input id="budget" class="inp" inputmode="decimal" placeholder="например, 3000" value=${f.budgetUSD} onInput=${e=>setF({...f,budgetUSD:e.target.value})}/></${Field}></div>
+      <div><button class="btn primary" onClick=${save}>Сохранить</button></div>
+    </section>
+
+    <section class="card" style="padding:18px 20px;display:grid;gap:14px">
+      <div><h2>Данные</h2><p class="small muted" style="margin-top:3px">${Store.mode==='db'?'Данные хранятся в вашем артефакте на claude.ai и синхронизируются между телефоном и компьютером. Видите их только вы и те, кому вы дали права редактора.':'Данные хранятся только в этом браузере. Делайте резервную копию, чтобы не потерять их.'}</p></div>
+      <div class="row">
+        <button class="btn" onClick=${()=>exportData(data)}>Скачать резервную копию (.json)</button>
+        <button class="btn" onClick=${()=>fileRef.current.click()}>Импортировать из файла</button>
+        <input ref=${fileRef} type="file" accept="application/json,.json" style="display:none" onChange=${onFile}/>
+      </div>
+      ${imp?html`<div class="notice info"><div class="notice-body"><b>В файле: ${imp.unis.length} вузов и ${imp.tasks.length} задач.</b><span>Записи с теми же id будут заменены, остальные добавлены.</span></div><div class="row"><button class="btn sm" onClick=${()=>setImp(null)}>Отмена</button><button class="btn sm primary" onClick=${doImport}>Импортировать</button></div></div>`:''}
+      ${examples.length||exTasks.length?html`<div class="row" style="justify-content:space-between;border-top:1px solid var(--line);padding-top:14px"><span class="small muted">Примеры: ${examples.length} вуза и ${exTasks.length} задач. Удаляются только записи с меткой «пример».</span><${ConfirmBtn} small label="Удалить примеры" armedLabel="Удалить без возврата?" onConfirm=${delExamples}/></div>`:''}
+    </section>
+  </div>`;
+}
+async function exportData(data){
+  const payload={app:'admissions-dashboard',version:1,exportedAt:new Date().toISOString(),unis:Object.values(data.unis),tasks:Object.values(data.tasks),settings:data.settings};
+  const text=JSON.stringify(payload,null,2);const name='postuplenie-backup-'+todayISO()+'.json';
+  const c=window.claude;
+  if(c&&typeof c.use==='function'){
+    let dl=null;try{dl=await c.use('downloads');}catch(e){}
+    if(dl){try{await dl.save({filename:name,data:text});toast('Резервная копия сохранена');}catch(e){if(!e||e.code!=='declined')toast('Не удалось сохранить файл'+(e&&e.message?': '+e.message:''));}return;}
+    try{await navigator.clipboard.writeText(text);toast('Скачивание недоступно здесь — копия скопирована в буфер обмена');}catch(e){toast('Скачивание недоступно в этом окне');}
+    return;
+  }
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'application/json'}));a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),3000);toast('Резервная копия сохранена');
+}
+
+/* =========================================================
+   Формы
+   ========================================================= */
+const Field=({label,hint,children,wide})=>html`<label class=${'field'+(wide?' wide':'')}><span class="f-label">${label}</span>${children}${hint?html`<span class="f-hint">${hint}</span>`:''}</label>`;
+function useForm(init){
+  const [f,setF]=useState(()=>clone(init));
+  const set=(p,v)=>setF(prev=>{const n=clone(prev);setPath(n,p,v);return n;});
+  return [f,set];
+}
+function Sheet({title,onClose,children,footer}){
+  const ref=useRef();
+  useEffect(()=>{const k=e=>{if(e.key==='Escape')onClose();};document.addEventListener('keydown',k);const el=ref.current&&ref.current.querySelector('input:not([type=checkbox]),select,textarea');if(el&&window.matchMedia('(min-width:641px)').matches)el.focus();document.body.style.overflow='hidden';return ()=>{document.removeEventListener('keydown',k);document.body.style.overflow='';};},[]);
+  return html`<div class="overlay" onMouseDown=${e=>{if(e.target===e.currentTarget)onClose();}}>
+    <div class="sheet" role="dialog" aria-modal="true" aria-label=${title} ref=${ref}>
+      <div class="sheet-head"><h2>${title}</h2><button class="btn icon ghost" onClick=${onClose} aria-label="Закрыть"><${Icon} n="x"/></button></div>
+      <div class="sheet-body">${children}</div>
+      ${footer?html`<div class="sheet-foot">${footer}</div>`:''}
+    </div></div>`;
+}
+function SourceFields({f,set,prefix=''}){
+  const src=getPath(f,prefix+'source')||'',date=getPath(f,prefix+'checkedAt')||'';
+  const ok=src&&date;const bad=src&&!safeUrl(src);
+  return html`<fieldset class="fs"><legend>Источник</legend>
+    <div class="f-row">
+      <${Field} label="Ссылка на официальную страницу"><input class="inp" type="url" placeholder="https://…" value=${src} onInput=${e=>set(prefix+'source',e.target.value.trim())}/></${Field}>
+      <${Field} label="Дата проверки"><div class="inline"><input class="inp" type="date" value=${date} onInput=${e=>set(prefix+'checkedAt',e.target.value)}/><button type="button" class="btn sm" onClick=${()=>set(prefix+'checkedAt',todayISO())}>Сегодня</button></div></${Field}>
+    </div>
+    <span class="f-hint" style=${bad?'color:var(--crit)':''}>${bad?'Ссылка должна начинаться с https://':ok?'✓ Значение будет показано как проверенное':'Без ссылки и даты значение показывается как «Не проверено».'}</span>
+  </fieldset>`;
+}
+function Seg({value,opts,onChange,label}){
+  return html`<div class="seg" role="radiogroup" aria-label=${label}>${opts.map(([v,l])=>html`<button type="button" role="radio" aria-checked=${value===v} class=${value===v?'on':''} onClick=${()=>onChange(v)}>${l}</button>`)}</div>`;
+}
+function Footer({onClose,onSave,canSave=true,onDelete,saveLabel='Сохранить'}){
+  return html`${onDelete?html`<${ConfirmBtn} onConfirm=${onDelete}/>`:html`<span></span>`}<div class="row"><button class="btn" onClick=${onClose}>Отмена</button><button class="btn primary" disabled=${!canSave} onClick=${onSave}>${saveLabel}</button></div>`;
+}
+
+function UniForm({uni,ui}){
+  const isNew=!uni;
+  const [f,set]=useForm(uni||{name:'',city:'',country:'',program:'',degree:'Бакалавриат',status:'research',tier:'',website:'',portal:'',notes:'',noAid:false,costs:{currency:'USD'}});
+  const save=()=>{const id=f.id||uid('u');const body={...f,id,name:f.name.trim(),country:f.country.trim(),city:f.city.trim(),deadlines:f.deadlines||[],scholarships:f.scholarships||[],documents:f.documents||[],costs:{...(f.costs||{}),currency:(f.costs&&f.costs.currency)||'USD'},createdAt:f.createdAt||todayISO()};
+    A.saveUni(body);ui.close();toast(isNew?'Вуз добавлен':'Сохранено');if(isNew)go('uni-'+id);};
+  const del=async()=>{await A.deleteUni(uni.id);ui.close();go('unis');toast('Вуз удалён');};
+  return html`<${Sheet} title=${isNew?'Новый вуз':'Изменить вуз'} onClose=${ui.close} footer=${html`<${Footer} onClose=${ui.close} onSave=${save} canSave=${f.name.trim()&&f.country.trim()} onDelete=${isNew?null:del}/>`}>
+    <${Field} label="Название вуза или программы *"><input id="u-name" class="inp" value=${f.name} onInput=${e=>set('name',e.target.value)} placeholder="Например, KAIST"/></${Field}>
+    <div class="f-row"><${Field} label="Страна *"><input id="u-country" class="inp" list="countries" value=${f.country} onInput=${e=>set('country',e.target.value)} placeholder="Южная Корея"/></${Field}>
+      <${Field} label="Город"><input id="u-city" class="inp" value=${f.city} onInput=${e=>set('city',e.target.value)}/></${Field}></div>
+    <datalist id="countries">${[...new Set(Object.values(Store.data.unis).map(u=>u.country).filter(Boolean))].map(c=>html`<option value=${c}/>`)}</datalist>
+    <div class="f-row"><${Field} label="Программа / специальность"><input id="u-prog" class="inp" value=${f.program} onInput=${e=>set('program',e.target.value)} placeholder="Computer Science"/></${Field}>
+      <${Field} label="Уровень"><input id="u-degree" class="inp" value=${f.degree} onInput=${e=>set('degree',e.target.value)}/></${Field}></div>
+    <div class="f-row three">
+      <${Field} label="Статус заявки"><select id="u-status" class="inp" value=${f.status} onChange=${e=>set('status',e.target.value)}>${STATUSES.map(s=>html`<option value=${s.id}>${s.label}</option>`)}</select></${Field}>
+      <${Field} label="Категория"><select id="u-tier" class="inp" value=${f.tier||''} onChange=${e=>set('tier',e.target.value)}><option value="">—</option>${Object.entries(TIERS).map(([k,v])=>html`<option value=${k}>${v}</option>`)}</select></${Field}>
+      <${Field} label="Валюта цен"><select id="u-cur" class="inp" value=${(f.costs||{}).currency||'USD'} onChange=${e=>set('costs.currency',e.target.value)}>${CURRENCIES.map(c=>html`<option value=${c}>${c}</option>`)}</select></${Field}>
+    </div>
+    <div class="f-row"><${Field} label="Официальный сайт"><input id="u-web" class="inp" type="url" placeholder="https://…" value=${f.website} onInput=${e=>set('website',e.target.value.trim())}/></${Field}>
+      <${Field} label="Портал заявки"><input id="u-portal" class="inp" type="url" placeholder="https://…" value=${f.portal} onInput=${e=>set('portal',e.target.value.trim())}/></${Field}></div>
+    <label class="toggle"><input type="checkbox" checked=${!!f.noAid} onChange=${e=>set('noAid',e.target.checked)}/>Вуз не даёт финансирования иностранцам (проверено)</label>
+    <${Field} label="Заметки"><textarea id="u-notes" class="inp" value=${f.notes} onInput=${e=>set('notes',e.target.value)} placeholder="Впечатления, контакты, что важно не забыть"></textarea></${Field}>
+  </${Sheet}>`;
+}
+
+function DeadlineForm({uni,item,ui}){
+  const isNew=!item;
+  const [f,set]=useForm(item?{...item,inst:undefined,uni:undefined}:{label:'',type:'application',date:'',time:'',tz:'America/New_York',note:'',source:'',checkedAt:'',done:false});
+  const preview=f.date?deadlineLine({...f,tz:f.tz}):'';
+  const save=()=>{const d={id:f.id||uid('dl'),label:f.label.trim(),type:f.type,date:f.date,time:f.time||'',tz:f.time?f.tz:'',note:f.note||'',source:f.source||'',checkedAt:f.checkedAt||'',done:!!f.done};
+    const list=isNew?[...(uni.deadlines||[]),d]:(uni.deadlines||[]).map(x=>x.id===d.id?d:x);A.patchUni(uni.id,{deadlines:list});ui.close();toast('Дедлайн сохранён');};
+  const del=()=>{A.patchUni(uni.id,{deadlines:(uni.deadlines||[]).filter(x=>x.id!==item.id)});ui.close();toast('Дедлайн удалён');};
+  return html`<${Sheet} title=${(isNew?'Новый дедлайн':'Дедлайн')+' · '+uni.name} onClose=${ui.close} footer=${html`<${Footer} onClose=${ui.close} onSave=${save} canSave=${f.label.trim()&&f.date} onDelete=${isNew?null:del}/>`}>
+    <div class="f-row"><${Field} label="Что за срок *"><input id="dl-label" class="inp" value=${f.label} onInput=${e=>set('label',e.target.value)} placeholder="Regular Decision"/></${Field}>
+      <${Field} label="Тип"><select id="dl-type" class="inp" value=${f.type} onChange=${e=>set('type',e.target.value)}>${Object.entries(DL_TYPES).map(([k,v])=>html`<option value=${k}>${v}</option>`)}</select></${Field}></div>
+    <div class="f-row three"><${Field} label="Дата *"><input id="dl-date" class="inp" type="date" value=${f.date} onInput=${e=>set('date',e.target.value)}/></${Field}>
+      <${Field} label="Время (если указано)"><input id="dl-time" class="inp" type="time" value=${f.time} onInput=${e=>set('time',e.target.value)}/></${Field}>
+      <${Field} label="Часовой пояс вуза"><select id="dl-tz" class="inp" value=${f.tz||BISHKEK} disabled=${!f.time} onChange=${e=>set('tz',e.target.value)}>${TZS.map(([k,v])=>html`<option value=${k}>${v}</option>`)}</select></${Field}></div>
+    ${preview?html`<p class="f-hint">Будет показано: ${preview}${!f.time?' (без времени считаю до 23:59 по Бишкеку)':''}</p>`:''}
+    <${Field} label="Примечание"><textarea id="dl-note" class="inp" value=${f.note} onInput=${e=>set('note',e.target.value)} placeholder="Например: binding — при поступлении обязан учиться"></textarea></${Field}>
+    <${SourceFields} f=${f} set=${set}/>
+    <label class="toggle"><input type="checkbox" checked=${!!f.done} onChange=${e=>set('done',e.target.checked)}/>Выполнено (заявка или форма отправлена)</label>
+  </${Sheet}>`;
+}
+
+function CostForm({uni,layer,ui}){
+  const c=uni.costs||{};const cur=c.currency||'USD';
+  const strItems=it=>Object.fromEntries(COST_ITEMS.map(([k])=>[k,num((it||{})[k])?String(it[k]):'']));
+  const init=layer==='offer'?{...(c.offer||{}),coa:num((c.offer||{}).coa)?String(c.offer.coa):'',grants:num((c.offer||{}).grants)?String(c.offer.grants):'',loans:num((c.offer||{}).loans)?String(c.offer.loans):'',work:num((c.offer||{}).work)?String(c.offer.work):'',net:num((c.offer||{}).net)?String(c.offer.net):''}
+    :{...(c[layer]||{}),items:strItems((c[layer]||{}).items),total:num((c[layer]||{}).total)?String(c[layer].total):''};
+  const [f,set]=useForm(init);
+  const titles={published:'Опубликованная стоимость',estimate:'Моя оценка стоимости года',offer:'Предложение вуза (award letter)'};
+  const save=()=>{let body;
+    if(layer==='offer'){body={coa:toNum(f.coa),grants:toNum(f.grants),loans:toNum(f.loans),work:toNum(f.work),net:toNum(f.net),receivedAt:f.receivedAt||'',ref:(f.ref||'').trim(),note:(f.note||'').trim()};}
+    else{const items={};for(const [k] of COST_ITEMS)items[k]=toNum(f.items[k]);body={items,total:toNum(f.total),note:(f.note||'').trim()};
+      if(layer==='published'){body.year=(f.year||'').trim();body.source=f.source||'';body.checkedAt=f.checkedAt||'';}}
+    A.patchUni(uni.id,{costs:{...c,currency:cur,[layer]:body}});ui.close();toast('Сохранено');};
+  const clear=()=>{const n={...c};delete n[layer];A.patchUni(uni.id,{costs:n});ui.close();toast('Очищено');};
+  const copyPub=()=>{set('items',strItems((c.published||{}).items));};
+  return html`<${Sheet} title=${titles[layer]} onClose=${ui.close} footer=${html`<${Footer} onClose=${ui.close} onSave=${save} onDelete=${c[layer]?clear:null}/>`}>
+    ${layer==='published'?html`<p class="small muted">Только цифры с официальной страницы Cost of Attendance. Если строки нет на странице — оставьте пустой, она будет «Не проверено». Валюта: ${cur}.</p>
+      <div class="f-row"><${Field} label="Учебный год цен"><input id="c-year" class="inp" value=${f.year||''} onInput=${e=>set('year',e.target.value)} placeholder="2026–27"/></${Field}>
+        <${Field} label="Итого по данным вуза" hint="Если вуз публикует общую сумму"><input id="c-total" class="inp" inputmode="decimal" value=${f.total} onInput=${e=>set('total',e.target.value)}/></${Field}></div>`:''}
+    ${layer==='estimate'?html`<p class="small muted">Ваша оценка, например на 2027–28 с учётом роста цен или реальной аренды в городе. Не требует источника, но показывается как «предварительный расчёт».</p>
+      ${c.published&&c.published.items?html`<button class="btn sm" style="justify-self:start" onClick=${copyPub}>Скопировать строки из опубликованной стоимости</button>`:''}`:''}
+    ${layer!=='offer'?html`<div class="f-row keep">${COST_ITEMS.map(([k,l])=>html`<${Field} label=${l+', '+cur}><input id=${'ci-'+k} class="inp" inputmode="decimal" value=${f.items[k]} onInput=${e=>set('items.'+k,e.target.value)}/></${Field}>`)}</div>
+      <${Field} label="Примечание"><textarea class="inp" value=${f.note||''} onInput=${e=>set('note',e.target.value)} placeholder="Например: питание облагается НДС; цены за 2026–27"></textarea></${Field}>`:''}
+    ${layer==='published'?html`<${SourceFields} f=${f} set=${set}/>`:''}
+    ${layer==='offer'?html`<p class="small muted">Цифры из официального письма о финансовой помощи (сумма за год, ${cur}). Они заменят предварительный расчёт в «моём остатке».</p>
+      <div class="f-row"><${Field} label="Стоимость года в письме (COA)"><input id="o-coa" class="inp" inputmode="decimal" value=${f.coa} onInput=${e=>set('coa',e.target.value)}/></${Field}>
+        <${Field} label="Гранты и стипендии (не надо возвращать)"><input id="o-grants" class="inp" inputmode="decimal" value=${f.grants} onInput=${e=>set('grants',e.target.value)}/></${Field}>
+        <${Field} label="Займы"><input id="o-loans" class="inp" inputmode="decimal" value=${f.loans} onInput=${e=>set('loans',e.target.value)}/></${Field}>
+        <${Field} label="Work-study"><input id="o-work" class="inp" inputmode="decimal" value=${f.work} onInput=${e=>set('work',e.target.value)}/></${Field}></div>
+      <${Field} label="К оплате семьёй (если указано в письме)" hint="Если пусто — считаю как COA − гранты"><input id="o-net" class="inp" inputmode="decimal" value=${f.net} onInput=${e=>set('net',e.target.value)}/></${Field}>
+      <div class="f-row"><${Field} label="Дата письма"><input id="o-date" class="inp" type="date" value=${f.receivedAt||''} onInput=${e=>set('receivedAt',e.target.value)}/></${Field}>
+        <${Field} label="Где лежит письмо"><input id="o-ref" class="inp" value=${f.ref||''} onInput=${e=>set('ref',e.target.value)} placeholder="Портал заявки, письмо от 15 марта"/></${Field}></div>
+      <${Field} label="Условия предложения"><textarea class="inp" value=${f.note||''} onInput=${e=>set('note',e.target.value)} placeholder="Например: нужно сохранять GPA 3.0, грант на 4 года"></textarea></${Field}>`:''}
+  </${Sheet}>`;
+}
+
+function ScholarshipForm({uni,item,ui}){
+  const isNew=!item;const cur=(uni.costs||{}).currency||'USD';
+  const [f,set]=useForm(item?{...item,amount:num(item.amount)?String(item.amount):''}:{name:'',type:'university',status:'planned',amount:'',covers:{tuition:'unknown',housing:'unknown',food:'unknown',insurance:'unknown',travel:'unknown'},stipend:'',conditions:'',renewable:'unknown',include:true,source:'',checkedAt:''});
+  const save=()=>{const s={...f,id:f.id||uid('s'),name:f.name.trim(),amount:toNum(f.amount)};const list=isNew?[...(uni.scholarships||[]),s]:(uni.scholarships||[]).map(x=>x.id===s.id?s:x);A.patchUni(uni.id,{scholarships:list});ui.close();toast('Стипендия сохранена');};
+  const del=()=>{A.patchUni(uni.id,{scholarships:(uni.scholarships||[]).filter(x=>x.id!==item.id)});ui.close();toast('Стипендия удалена');};
+  const fr=['tuition','housing','food'].every(k=>(f.covers||{})[k]==='yes');
+  return html`<${Sheet} title=${(isNew?'Новая стипендия':'Стипендия')+' · '+uni.name} onClose=${ui.close} footer=${html`<${Footer} onClose=${ui.close} onSave=${save} canSave=${f.name.trim()} onDelete=${isNew?null:del}/>`}>
+    <${Field} label="Название стипендии *"><input id="s-name" class="inp" value=${f.name} onInput=${e=>set('name',e.target.value)} placeholder="Например, KAIST International Student Scholarship"/></${Field}>
+    <div class="f-row"><${Field} label="Тип"><select id="s-type" class="inp" value=${f.type} onChange=${e=>set('type',e.target.value)}>${Object.entries(SCH_TYPES).map(([k,v])=>html`<option value=${k}>${v}</option>`)}</select></${Field}>
+      <${Field} label="Мой статус"><select id="s-status" class="inp" value=${f.status} onChange=${e=>set('status',e.target.value)}>${Object.entries(SCH_STATUS).map(([k,v])=>html`<option value=${k}>${v}</option>`)}</select></${Field}></div>
+    <fieldset class="fs"><legend>Что покрывает ${fr?'· full ride':''}</legend><div class="cover-grid">
+      ${COVER_KEYS.map(([k,l])=>html`<div class="crow"><span>${l}</span><${Seg} label=${l} value=${(f.covers||{})[k]||'unknown'} opts=${COVER_OPTS} onChange=${v=>set('covers.'+k,v)}/></div>`)}
+    </div></fieldset>
+    <div class="f-row"><${Field} label=${'Возможная сумма покрытия в год, '+cur} hint="Включите и стипендию на жизнь за год. Если пусто — считаю по статьям, отмеченным «Да»"><input id="s-amount" class="inp" inputmode="decimal" value=${f.amount} onInput=${e=>set('amount',e.target.value)}/></${Field}>
+      <${Field} label="Стипендия на жизнь"><input id="s-stipend" class="inp" value=${f.stipend} onInput=${e=>set('stipend',e.target.value)} placeholder="Например: 900 000 KRW в месяц"/></${Field}></div>
+    <div class="f-row"><${Field} label="Продлевается на весь срок?"><select id="s-renew" class="inp" value=${f.renewable} onChange=${e=>set('renewable',e.target.value)}><option value="unknown">Не проверено</option><option value="yes">Да</option><option value="no">Нет</option></select></${Field}>
+      <div class="field"><span class="f-label">Расчёт</span><label class="toggle" style="min-height:42px"><input type="checkbox" checked=${f.include!==false} onChange=${e=>set('include',e.target.checked)}/>Учитывать в моём остатке</label></div></div>
+    <${Field} label="Условия и требования"><textarea id="s-cond" class="inp" value=${f.conditions} onInput=${e=>set('conditions',e.target.value)} placeholder="GPA, тесты, отдельная заявка, нужно ли сохранять баллы"></textarea></${Field}>
+    <${SourceFields} f=${f} set=${set}/>
+  </${Sheet}>`;
+}
+
+function TaskForm({task,ui}){
+  const isNew=!task||!task.id;
+  const [f,set]=useForm({title:'',uniId:null,due:'',priority:'normal',note:'',done:false,...(task||{})});
+  const unis=Object.values(Store.data.unis).sort((a,b)=>a.name.localeCompare(b.name));
+  const save=()=>{A.saveTask({...f,id:f.id||uid('t'),title:f.title.trim(),uniId:f.uniId||null,due:f.due||null,createdAt:f.createdAt||todayISO()});ui.close();toast(isNew?'Задача добавлена':'Сохранено');};
+  const del=()=>{A.deleteTask(task.id);ui.close();toast('Задача удалена');};
+  return html`<${Sheet} title=${isNew?'Новая задача':'Задача'} onClose=${ui.close} footer=${html`<${Footer} onClose=${ui.close} onSave=${save} canSave=${f.title.trim()} onDelete=${isNew?null:del}/>`}>
+    <${Field} label="Что сделать *"><input id="t-title" class="inp" value=${f.title} onInput=${e=>set('title',e.target.value)} placeholder="Например: заполнить CSS Profile"/></${Field}>
+    <div class="f-row"><${Field} label="Вуз"><select id="t-uni" class="inp" value=${f.uniId||''} onChange=${e=>set('uniId',e.target.value||null)}><option value="">— общая задача —</option>${unis.map(u=>html`<option value=${u.id}>${u.name}</option>`)}</select></${Field}>
+      <${Field} label="Срок"><input id="t-due" class="inp" type="date" value=${f.due||''} onInput=${e=>set('due',e.target.value)}/></${Field}></div>
+    <div class="row"><span class="f-label">Приоритет</span><${Seg} label="Приоритет" value=${f.priority} opts=${[['normal','Обычный'],['high','Важно']]} onChange=${v=>set('priority',v)}/></div>
+    <${Field} label="Заметка"><textarea id="t-note" class="inp" value=${f.note||''} onInput=${e=>set('note',e.target.value)}></textarea></${Field}>
+    ${!isNew?html`<label class="toggle"><input type="checkbox" checked=${!!f.done} onChange=${e=>set('done',e.target.checked)}/>Выполнено</label>`:''}
+  </${Sheet}>`;
+}
+function AddChooser({ui}){
+  return html`<${Sheet} title="Добавить" onClose=${ui.close}>
+    <div class="choose">
+      <button onClick=${()=>ui.open({type:'uni'})}><${Icon} n="uni" s=${22}/><span><b>Вуз или программу</b><span class="small muted">Название, страна, статус, ссылки</span></span></button>
+      <button onClick=${()=>ui.open({type:'import'})}><${Icon} n="spark" s=${22}/><span><b>Вуз из PDF или текста</b><span class="small muted">Claude прочитает документ, вы проверите</span></span></button>
+      <button onClick=${()=>ui.open({type:'task'})}><${Icon} n="tasks" s=${22}/><span><b>Задачу</b><span class="small muted">С датой и привязкой к вузу</span></span></button>
+      <p class="small faint">Дедлайны, стипендии, стоимость и документы добавляются на странице конкретного вуза.</p>
+    </div></${Sheet}>`;
+}
+function ModalHost({m,ui}){
+  const fresh=x=>x&&Store.data.unis[x.id]||x;
+  switch(m.type){
+    case 'uni':return html`<${UniForm} uni=${m.uni&&fresh(m.uni)} ui=${ui}/>`;
+    case 'deadline':return html`<${DeadlineForm} uni=${fresh(m.uni)} item=${m.item} ui=${ui}/>`;
+    case 'cost':return html`<${CostForm} uni=${fresh(m.uni)} layer=${m.layer} ui=${ui}/>`;
+    case 'scholarship':return html`<${ScholarshipForm} uni=${fresh(m.uni)} item=${m.item} ui=${ui}/>`;
+    case 'task':return html`<${TaskForm} task=${m.task} ui=${ui}/>`;
+    case 'add':return html`<${AddChooser} ui=${ui}/>`;
+    case 'import':return html`<${ImportSheet} uni=${m.uni&&fresh(m.uni)} fileRef=${m.fileRef} ui=${ui}/>`;
+    case 'req':return html`<${ReqForm} uni=${fresh(m.uni)} ui=${ui}/>`;
+  }
+  return null;
+}
+
+/* =========================================================
+   Приложение
+   ========================================================= */
+function App(){
+  const [,force]=useState(0);
+  useEffect(()=>{const f=()=>force(x=>x+1);Store.subs.add(f);f();return ()=>Store.subs.delete(f);},[]);
+  const route=useRoute();
+  const [modal,setModal]=useState(null);
+  const [t,setT]=useState(null);
+  useEffect(()=>{window.__toast=m=>setT({m,k:Date.now()});},[]);
+  useEffect(()=>{if(!t)return;const x=setTimeout(()=>setT(null),2600);return ()=>clearTimeout(x);},[t]);
+  const ui={open:m=>setModal(m),close:()=>setModal(null)};
+  const data=Store.data;
+  let page;
+  if(!Store.ready)page=html`<div class="wrap"><div class="skel"></div><div class="grid2"><div class="skel"></div><div class="skel"></div></div><p class="faint small">Загружаю ваши вузы и задачи…</p></div>`;
+  else if(route.startsWith('uni-'))page=html`<${UniDetail} id=${route.slice(4)} data=${data} ui=${ui}/>`;
+  else if(route==='unis')page=html`<${Unis} data=${data} ui=${ui}/>`;
+  else if(route==='tasks')page=html`<${Tasks} data=${data} ui=${ui}/>`;
+  else if(route==='config')page=html`<${Config} key=${JSON.stringify(data.settings)} data=${data}/>`;
+  else page=html`<${Home} data=${data} ui=${ui}/>`;
+  return html`<div class="shell">
+    <${Sidebar} route=${route} data=${data} ui=${ui}/>
+    <main class="main">
+      ${Store.note?html`<div class="wrap" style="margin-bottom:16px"><div class="notice"><${Icon} n="alert"/><span>${Store.note}</span></div></div>`:''}
+      <div class="view" key=${route}>${page}</div>
+    </main>
+    <${BottomNav} route=${route} data=${data} ui=${ui}/>
+    ${modal?html`<${ModalHost} m=${modal} ui=${ui}/>`:''}
+    ${t?html`<div class="toast" role="status" key=${t.k}>${t.m}</div>`:''}
+  </div>`;
+}
+render(html`<${App}/>`,document.getElementById('app'));
+Store.init();
+})();
+</script>
+
+</body>
+</html>
